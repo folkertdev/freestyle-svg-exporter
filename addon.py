@@ -11,10 +11,13 @@ bl_info = {
 
 import bpy
 import parameter_editor
+import os
 
 import xml.etree.cElementTree as et 
 
 from freestyle.types import StrokeShader, Interface0DIterator
+from freestyle.utils import get_dashed_pattern
+from freestyle.shaders import RoundCapShader, SquareCapShader
 
 from bpy.props import StringProperty, BoolProperty, EnumProperty, PointerProperty
 from bpy.path import abspath
@@ -39,12 +42,35 @@ namespaces = {
     "svg": "http://www.w3.org/2000/svg",
     }
 
+def create_path(filepath, scene) -> str:
+    """
+    Creates the output path for the svg file
+
+    * If a filename is given, extend it with the current frame and the .svg extension
+    * If a directory is given, the blendfile's name becomes the filename, which is again 
+        extended with the current frame and the .svg extension
+    """
+    filepath = bpy.path.abspath(filepath)
+    if os.path.isfile(filepath):
+        return filepath.split('.')[0] + "_{:04}.svg".format(scene.frame_current)
+    elif os.path.isdir(filepath):
+        filename = bpy.path.basename(bpy.context.blend_data.filepath)
+        return filepath + "/" + filename + "_{:04}.svg".format(scene.frame_current)
+    else:
+        # try to create file
+        open(filepath, 'a').close()
+        # if succesful, proceed as normal (errors here will be printed to the console)
+        return filepath.split('.')[0] + "_{:04}.svg".format(scene.frame_current)
+
+
+
 class svg_export(bpy.types.PropertyGroup):
     """Implements the properties for the SVG exporter"""
     bl_idname = "RENDER_PT_svg_export"
 
     use_svg_export = BoolProperty(name="SVG Export", description="Export Freestyle edges to an .svg format")
-    filepath = StringProperty(name="filepath", description="location to save the .svg file to", subtype='FILE_PATH')
+    filepath = StringProperty(name="filepath", description="location to save the .svg file to", subtype='FILE_PATH',
+                              default=bpy.context.scene.render.filepath)
 
     
     split_at_invisible = BoolProperty(name="Split at Invisible", description="Split the stroke at an invisible vertex")
@@ -89,34 +115,6 @@ class SVGExporterPanel(bpy.types.Panel):
         row.prop(svg, "object_fill")
 
 
-#
-#   The error message operator. When invoked, pops up a dialog 
-#   window with the given message.   
-#
-class SVGExportErrorOperator(bpy.types.Operator):
-    bl_idname = "error.SVGExportError"
-    bl_label = "SVGExportError"
-    type = StringProperty()
-    message = StringProperty()
- 
-    def execute(self, context):
-        self.report({'INFO'}, self.message)
-        print(self.message)
-        return {'FINISHED'}
- 
-    def invoke(self, context, event):
-        wm = context.window_manager
-        return wm.invoke_popup(self, width=400, height=200)
- 
-    def draw(self, context):
-        self.layout.label("A message has arrived")
-        row = self.layout.split(0.25)
-        row.prop(self, "type")
-        row.prop(self, "message")
-        row = self.layout.split(0.80)
-        row.label("") 
-        row.operator("error.ok")
-
 def svg_export_header(scene):  
     svg = scene.svg_export
     render = scene.render
@@ -126,25 +124,18 @@ def svg_export_header(scene):
 
     width = int(render.resolution_x * render.resolution_percentage / 100)
     height = int(render.resolution_y * render.resolution_percentage / 100)
-
-    
-    path = abspath(svg.filepath) + "_{:04}.svg".format(scene.frame_current)
-    
-    #try:
-    with open(path, "w") as f:
+        
+    # this may fail still. The error is printed to the console. 
+    with open(create_path(svg.filepath, scene), "w") as f:
         f.write(svg_primitive.format(width, height))
-    # except:
-    #     # TODO investigate whether this error can be propagated to the UI
-    #     # invalid path is properly handled in the parameter editor
-    #     print("SVG export: invalid path")
+        
 
 def svg_export_animation(scene):
     """makes an animation of the exported SVG file """
     render = scene.render
     svg = scene.svg_export
     if render.use_freestyle and svg.use_svg_export and svg.mode == 'ANIMATION':
-        path = abspath(svg.filepath) + "_{:04}.svg".format(scene.frame_current)
-        write_animation(path, scene.frame_start, render.fps)
+        write_animation(create_path(svg.filepath, scene), scene.frame_start, render.fps)
 
 def write_animation(filepath, frame_begin, fps=25):
     """Adds animate tags to the specified file."""
@@ -249,7 +240,6 @@ class SVGPathShader(StrokeShader):
 
     def write(self):
         """Write SVG data tree to file """
-        print("writing")
         tree = et.parse(self.filepath)
         root = tree.getroot()
         name = self._name
@@ -274,15 +264,18 @@ class SVGPathShader(StrokeShader):
         lineset_group.append(frame_group)
 
         # write SVG to file
+        print("SVG Export: writing to ", self.filepath)
         indent_xml(root)
         tree.write(self.filepath, encoding='UTF-16', xml_declaration=True)
 
 
-def add_svg_export_shader(scene, shaders_list, lineset):
-    path = abspath(scene.svg_export.filepath) + "_{:04}.svg".format(scene.frame_current)
+def add_svg_export_shader(scene, shaders_list, lineset) -> (object, int):
+    path = create_path(scene.svg_export.filepath, scene)
     height = int(scene.render.resolution_y * scene.render.resolution_percentage / 100)
     split = scene.svg_export.split_at_invisible
-    return [SVGPathShader.from_lineset(lineset, path, height, split, scene.frame_current),]
+    # we want to insert before the first (most likely only) stroke cap shader. if none, insert at the end
+    index = next((i for i, s in enumerate(shaders_list) if type(s) in {RoundCapShader, SquareCapShader}), -1)
+    return (SVGPathShader.from_lineset(lineset, path, height, split, scene.frame_current), index)
 
 def write_svg_export_shader(scene, shaders_list, lineset):
     for shader in shaders_list:
@@ -307,6 +300,7 @@ def indent_xml(elem, level=0, indentsize=4):
     elif level and (not elem.tail or not elem.tail.strip()):
         elem.tail = i
 
+
 def register():
     # register UI
     bpy.utils.register_class(SVGExporterPanel)
@@ -317,12 +311,8 @@ def register():
     bpy.app.handlers.render_init.append(svg_export_header)
     bpy.app.handlers.render_post.append(svg_export_animation)
     # manipulate shaders list
-    parameter_editor.callbacks_base_style_post.append(add_svg_export_shader)
+    parameter_editor.callbacks_style_post.append(add_svg_export_shader)
     parameter_editor.callbacks_lineset_post.append(write_svg_export_shader)
-    # Error
-    bpy.utils.register_class(SVGExportErrorOperator)
-
-
 
 
 def unregister():
@@ -335,13 +325,9 @@ def unregister():
     bpy.app.handlers.render_init.remove(svg_export_header)
     bpy.app.handlers.render_post.remove(svg_export_animation)
     # manipulate shaders list
-    parameter_editor.callbacks_base_style_post.remove(add_svg_export_shader)
+    parameter_editor.callbacks_style_post.remove(add_svg_export_shader)
     parameter_editor.callbacks_lineset_post.remove(write_svg_export_shader)
-    # Error
-    bpy.utils.unregister_class(SVGExportErrorOperator)
-
 
 
 if __name__ == "__main__":
-
     register()
