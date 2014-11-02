@@ -70,7 +70,7 @@ class svg_export(bpy.types.PropertyGroup):
 
     use_svg_export = BoolProperty(name="SVG Export", description="Export Freestyle edges to an .svg format")
     filepath = StringProperty(name="filepath", description="location to save the .svg file to", subtype='FILE_PATH',
-                              default=bpy.context.scene.render.filepath)
+                              default=bpy.context.user_preferences.filepaths.render_output_directory)
 
     
     split_at_invisible = BoolProperty(name="Split at Invisible", description="Split the stroke at an invisible vertex")
