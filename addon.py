@@ -7,7 +7,8 @@ bl_info = {
     "description": "Adds the functionality of exporting Freestyle's stylized edges as an .svg file",
     "warning": "",
     "wiki_url": "",
-    "category": "Render"}
+    "category": "Render",
+    }
 
 import bpy
 import parameter_editor
@@ -15,14 +16,18 @@ import os
 
 import xml.etree.cElementTree as et 
 
-from freestyle.types import StrokeShader, Interface0DIterator
-from freestyle.utils import get_dashed_pattern
+from freestyle.types import StrokeShader, Interface0DIterator, Operators, BinaryPredicate1D
+from freestyle.utils import get_dashed_pattern, getCurrentScene
 from freestyle.shaders import RoundCapShader, SquareCapShader
+from freestyle.functions import GetShapeF1D, CurveMaterialF0D
+from freestyle.predicates import AndUP1D, ContourUP1D, SameShapeIdBP1D, NotUP1D, QuantitativeInvisibilityUP1D, TrueUP1D, pyZBP1D
+from freestyle.chainingiterators import ChainPredicateIterator
 
 from bpy.props import StringProperty, BoolProperty, EnumProperty, PointerProperty
 from bpy.path import abspath
 
-from itertools import repeat
+from itertools import repeat, dropwhile
+from collections import OrderedDict
 
 # register namespaces
 et.register_namespace("", "http://www.w3.org/2000/svg")
@@ -42,26 +47,26 @@ namespaces = {
     "svg": "http://www.w3.org/2000/svg",
     }
 
-def create_path(filepath, scene) -> str:
-    """
-    Creates the output path for the svg file
+def render_height(scene) -> int:
+    """Calculates the scene height in pixels"""
+    return int(scene.render.resolution_y * scene.render.resolution_percentage / 100)
 
-    * If a filename is given, extend it with the current frame and the .svg extension
-    * If a directory is given, the blendfile's name becomes the filename, which is again 
-        extended with the current frame and the .svg extension
-    """
+def create_path(filepath, scene) -> str:
+    """Creates the output path for the svg file"""
     filepath = bpy.path.abspath(filepath)
+    extension = "_{:04}.svg".format(scene.frame_current)
+    # if a filename is given, add the frame number and safe
     if os.path.isfile(filepath):
-        return filepath.split('.')[0] + "_{:04}.svg".format(scene.frame_current)
+        return filepath.split('.')[0] + extension
+    # if a directory is given, use the blendfile's name as the filename
     elif os.path.isdir(filepath):
         filename = bpy.path.basename(bpy.context.blend_data.filepath)
-        return filepath + "/" + filename + "_{:04}.svg".format(scene.frame_current)
+        return filepath + "/" + filename + extension
+    # else, try to create a file at the specified location and proceed.
     else:
-        # try to create file
+        # errors in creating the file will be printed to the console
         open(filepath, 'a').close()
-        # if succesful, proceed as normal (errors here will be printed to the console)
-        return filepath.split('.')[0] + "_{:04}.svg".format(scene.frame_current)
-
+        return filepath.split('.')[0] + extension
 
 
 class svg_export(bpy.types.PropertyGroup):
@@ -77,11 +82,19 @@ class svg_export(bpy.types.PropertyGroup):
     object_fill = BoolProperty(name="Fill Contours", description="Fill the contour with the object's material color")
 
     _modes = [
-        ("FRAME", "Frame", "Export a single frame", 0),
-        ("ANIMATION", "Animation", "Export an animation", 1),
+        ('FRAME', "Frame", "Export a single frame", 0),
+        ('ANIMATION', "Animation", "Export an animation", 1),
         ]
 
-    mode = EnumProperty(items=_modes, name="Mode", default="FRAME")
+    mode = EnumProperty(items=_modes, name="Mode", default='FRAME')
+
+    _linejoins = [
+    ('MITTER', "Mitter", "Corners are sharp", 0),
+    ('ROUND', "Round", "Corners are smoothed", 1),
+    ('BEVEL', "Bevel", "Corners are bevelled", 2),
+    ]
+
+    linejoin = EnumProperty(items=_linejoins, name="Linejoin", default='ROUND')
 
 
 class SVGExporterPanel(bpy.types.Panel):
@@ -114,6 +127,9 @@ class SVGExporterPanel(bpy.types.Panel):
         row.prop(svg, "split_at_invisible")
         row.prop(svg, "object_fill")
 
+        row = layout.row()
+        row.prop(svg, "linejoin", expand=True)
+
 
 def svg_export_header(scene):  
     svg = scene.svg_export
@@ -136,6 +152,7 @@ def svg_export_animation(scene):
     svg = scene.svg_export
     if render.use_freestyle and svg.use_svg_export and svg.mode == 'ANIMATION':
         write_animation(create_path(svg.filepath, scene), scene.frame_start, render.fps)
+
 
 def write_animation(filepath, frame_begin, fps=25):
     """Adds animate tags to the specified file."""
@@ -176,7 +193,7 @@ def write_animation(filepath, frame_begin, fps=25):
     indent_xml(root)
     tree.write(filepath, encoding='UTF-16', xml_declaration=True)
 
-# - SVG export - # 
+# - StrokeShaders - # 
 class SVGPathShader(StrokeShader):
     """Stroke Shader for writing stroke data to a .svg file."""
     def __init__(self, name, style, filepath, res_y, split_at_invisible, frame_current):
@@ -196,13 +213,15 @@ class SVGPathShader(StrokeShader):
         """Builds a SVGPathShader using data from the given lineset"""
         name = name or lineset.name
         linestyle = lineset.linestyle
-        # extract style attributes from the linestyle
+        # extract style attributes from the linestyle and scene
+        svg = getCurrentScene().svg_export
         style = {
             'fill': 'none',
             'stroke-width': linestyle.thickness,
             'stroke-linecap': linestyle.caps.lower(),
             'stroke-opacity': linestyle.alpha,
-            'stroke': 'rgb({}, {}, {})'.format(*(int(c * 255) for c in linestyle.color))
+            'stroke': 'rgb({}, {}, {})'.format(*(int(c * 255) for c in linestyle.color)),
+            'stroke-linejoin': svg.linejoin.lower(),
             }
         # get dashed line pattern (if specified)
         if linestyle.use_dashed_line:
@@ -269,13 +288,108 @@ class SVGPathShader(StrokeShader):
         tree.write(self.filepath, encoding='UTF-16', xml_declaration=True)
 
 
-def add_svg_export_shader(scene, shaders_list, lineset) -> (object, int):
+class SVGFillShader(StrokeShader):
+    """Creates SVG fills from the current stroke set"""
+    def __init__(self, filepath, height, name):
+        StrokeShader.__init__(self)
+        # use an ordered dict to maintain input and z-order
+        self.shape_map = OrderedDict()
+        self.filepath = filepath
+        self.h = height
+        self._name = name
+
+    def shade(self, stroke, func=GetShapeF1D(), curvemat=CurveMaterialF0D()):
+        shape = func(stroke)[0].id.first
+        item = self.shape_map.get(shape)
+        if len(stroke) > 2:
+            if item is not None:
+                item[0].append(stroke)
+            else:
+                # the shape is not yet present, let's create it. 
+                material = curvemat(Interface0DIterator(stroke))
+                *color, alpha = material.diffuse
+                self.shape_map[shape] = ([stroke], color, alpha)       
+        # make the strokes of the second drawing invisible
+        for v in stroke:
+            v.attribute.visible = False
+
+    @staticmethod
+    def pathgen(vertices, path, height):
+        yield path
+        for point in vertices:
+            x, y = point
+            yield '{:.3f}, {:.3f} '.format(x, height - y)
+        yield 'z" />' # closes the path; connects the current to the first point
+
+    def write(self):
+        """Write SVG data tree to file """
+        # initialize SVG
+        tree = et.parse(self.filepath)
+        root = tree.getroot()
+        name = self._name
+
+        # create XML elements from the acquired data
+        elems = []
+        path = '<path fill-rule="evenodd" stroke="none" fill-opacity="{}" fill="rgb({}, {}, {})"  d=" M '
+        for strokes, col, alpha in self.shape_map.values():
+            p = path.format(alpha, *(int(255 * c) for c in col))
+            for stroke in strokes:
+                elems.append(et.XML("".join(self.pathgen((sv.point for sv in stroke), p, self.h))))
+
+        # make <g> for lineset as a whole (don't overwrite)
+        lineset_group = tree.find(".//svg:g[@id='{}']".format(name), namespaces=namespaces)
+        if lineset_group is None:
+            lineset_group = et.XML('<g/>')
+            lineset_group.attrib = {
+                'id': name,
+                'xmlns:inkscape': namespaces["inkscape"],
+                'inkscape:groupmode': 'lineset',
+                'inkscape:label': name,
+                }
+            root.insert(0, lineset_group)
+
+        # make <g> for fills
+        frame_group = et.XML('<g />')
+        frame_group.attrib = {'id': "layer_fills", 'inkscape:groupmode': 'fills', 'inkscape:label': 'fills'}
+        # reverse the elements so they are correctly ordered in the image
+        frame_group.extend(reversed(elems))
+        lineset_group.insert(0, frame_group)
+
+        # write SVG to file
+        indent_xml(root)
+        tree.write(self.filepath, encoding='UTF-16', xml_declaration=True)
+
+# - Callbacks - #
+def add_svg_export_shader(scene, shaders_list, lineset, capshaders={RoundCapShader, SquareCapShader}) -> (object, int):
     path = create_path(scene.svg_export.filepath, scene)
-    height = int(scene.render.resolution_y * scene.render.resolution_percentage / 100)
+    height = render_height(scene)
     split = scene.svg_export.split_at_invisible
     # we want to insert before the first (most likely only) stroke cap shader. if none, insert at the end
-    index = next((i for i, s in enumerate(shaders_list) if type(s) in {RoundCapShader, SquareCapShader}), -1)
+    index = next((i for i, s in enumerate(shaders_list) if type(s) in capshaders), -1)
     return (SVGPathShader.from_lineset(lineset, path, height, split, scene.frame_current), index)
+
+
+def add_svg_fill_shader(scene, shaders_list, lineset) -> None:
+    # this is very ugly/hacky: need to find a better way to not execute/register a callback if undesired
+    if not scene.svg_export.object_fill:
+        return False
+
+    # reset the stroke selection (but don't delete the already generated ones)
+    Operators.reset(delete_strokes=False)
+    # shape detection
+    upred = AndUP1D(QuantitativeInvisibilityUP1D(0), ContourUP1D())
+    Operators.select(upred)
+    # chain when the same shape and visible
+    bpred = SameShapeIdBP1D()
+    Operators.bidirectional_chain(ChainPredicateIterator(upred, bpred), NotUP1D(QuantitativeInvisibilityUP1D(0)))
+    # sort according to the distance from camera
+    Operators.sort(pyZBP1D())
+    # render and write fills
+    path = create_path(scene.svg_export.filepath, scene)
+    renderer = SVGFillShader(path, render_height(scene), lineset.name)
+    Operators.create(TrueUP1D(), [renderer,])
+    renderer.write()
+
 
 def write_svg_export_shader(scene, shaders_list, lineset):
     for shader in shaders_list:
@@ -312,6 +426,7 @@ def register():
     bpy.app.handlers.render_post.append(svg_export_animation)
     # manipulate shaders list
     parameter_editor.callbacks_style_post.append(add_svg_export_shader)
+    parameter_editor.callbacks_lineset_post.append(add_svg_fill_shader)
     parameter_editor.callbacks_lineset_post.append(write_svg_export_shader)
 
 
@@ -326,6 +441,7 @@ def unregister():
     bpy.app.handlers.render_post.remove(svg_export_animation)
     # manipulate shaders list
     parameter_editor.callbacks_style_post.remove(add_svg_export_shader)
+    parameter_editor.callbacks_lineset_post.remove(add_svg_fill_shader)
     parameter_editor.callbacks_lineset_post.remove(write_svg_export_shader)
 
 

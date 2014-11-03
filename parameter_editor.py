@@ -1208,8 +1208,9 @@ def process(layer_name, lineset_name):
 
     # execute post-base stylization callbacks
     for f in callbacks_style_post:
-        shader, index = f(scene, shaders_list, lineset)
-        shaders_list.insert(index, shader)
+        shader, index = f(scene, shaders_list, lineset) or (None, None)
+        if shader is not None:
+            shaders_list.insert(index, shader)
 
     # create strokes using the shaders list
     Operators.create(TrueUP1D(), shaders_list)
