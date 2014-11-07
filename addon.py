@@ -17,11 +17,12 @@ import os
 import xml.etree.cElementTree as et 
 
 from freestyle.types import StrokeShader, Interface0DIterator, Operators, BinaryPredicate1D
-from freestyle.utils import get_dashed_pattern, getCurrentScene
+from freestyle.utils import getCurrentScene
 from freestyle.shaders import RoundCapShader, SquareCapShader
 from freestyle.functions import GetShapeF1D, CurveMaterialF0D
 from freestyle.predicates import AndUP1D, ContourUP1D, SameShapeIdBP1D, NotUP1D, QuantitativeInvisibilityUP1D, TrueUP1D, pyZBP1D
 from freestyle.chainingiterators import ChainPredicateIterator
+from parameter_editor import get_dashed_pattern
 
 from bpy.props import StringProperty, BoolProperty, EnumProperty, PointerProperty
 from bpy.path import abspath
@@ -36,7 +37,7 @@ et.register_namespace("sodipodi", "http://sodipodi.sourceforge.net/DTD/sodipodi-
 
 
 # use utf-8 here to keep ElementTree happy, end result is utf-16
-svg_primitive = """<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+svg_primitive = """<?xml version="1.0" encoding="ascii" standalone="no"?>
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="{:d}" height="{:d}">
 </svg>"""
 
@@ -50,23 +51,30 @@ namespaces = {
 def render_height(scene) -> int:
     """Calculates the scene height in pixels"""
     return int(scene.render.resolution_y * scene.render.resolution_percentage / 100)
+    
 
 def create_path(filepath, scene) -> str:
     """Creates the output path for the svg file"""
     filepath = bpy.path.abspath(filepath)
     extension = "_{:04}.svg".format(scene.frame_current)
-    # if a filename is given, add the frame number and safe
-    if os.path.isfile(filepath):
-        return filepath.split('.')[0] + extension
-    # if a directory is given, use the blendfile's name as the filename
-    elif os.path.isdir(filepath):
-        filename = bpy.path.basename(bpy.context.blend_data.filepath)
-        return filepath + "/" + filename + extension
-    # else, try to create a file at the specified location and proceed.
+    if scene.svg_export.mode == 'FRAME':
+        # if a filename is given, add the frame number and safe
+        if os.path.isfile(filepath):
+            return filepath.split('.')[0] + extension
+        # if a directory is given, use the blendfile's name as the filename
+        elif os.path.isdir(filepath):
+            filename = bpy.path.basename(bpy.context.blend_data.filepath).split(".")[0]
+            return os.path.join(filepath, filename + extension)
+        # else, try to create a file at the specified location and proceed.
+        else:
+            # errors in creating the file will be printed to the console
+            # for instance, when the file is not saved (has no name) this will fail
+            open(filepath, 'a').close()
+            return filepath.split('.')[0] + extension
     else:
-        # errors in creating the file will be printed to the console
-        open(filepath, 'a').close()
-        return filepath.split('.')[0] + extension
+        if not os.path.isfile(filepath):
+            open(filepath, 'a').close()
+        return filepath
 
 
 class svg_export(bpy.types.PropertyGroup):
@@ -176,7 +184,7 @@ def write_animation(filepath, frame_begin, fps=25):
             'keyTimes': keyTimes,
             'dur': str(n_of_frames / fps) + 's',
             }
-
+        
         for j, (frame, fill) in enumerate(zip(frames, fills)):
             id = 'anim_{}_{:06n}'.format(name, j + frame_begin)
             # create animate tag
@@ -191,7 +199,7 @@ def write_animation(filepath, frame_begin, fps=25):
 
     # write SVG to file
     indent_xml(root)
-    tree.write(filepath, encoding='UTF-16', xml_declaration=True)
+    tree.write(filepath, encoding='ascii', xml_declaration=True)
 
 # - StrokeShaders - # 
 class SVGPathShader(StrokeShader):
@@ -285,7 +293,7 @@ class SVGPathShader(StrokeShader):
         # write SVG to file
         print("SVG Export: writing to ", self.filepath)
         indent_xml(root)
-        tree.write(self.filepath, encoding='UTF-16', xml_declaration=True)
+        tree.write(self.filepath, encoding='ascii', xml_declaration=True)
 
 
 class SVGFillShader(StrokeShader):
@@ -357,46 +365,58 @@ class SVGFillShader(StrokeShader):
 
         # write SVG to file
         indent_xml(root)
-        tree.write(self.filepath, encoding='UTF-16', xml_declaration=True)
+        tree.write(self.filepath, encoding='ascii', xml_declaration=True)
 
 # - Callbacks - #
-def add_svg_export_shader(scene, shaders_list, lineset, capshaders={RoundCapShader, SquareCapShader}) -> (object, int):
-    path = create_path(scene.svg_export.filepath, scene)
-    height = render_height(scene)
-    split = scene.svg_export.split_at_invisible
-    # we want to insert before the first (most likely only) stroke cap shader. if none, insert at the end
-    index = next((i for i, s in enumerate(shaders_list) if type(s) in capshaders), -1)
-    return (SVGPathShader.from_lineset(lineset, path, height, split, scene.frame_current), index)
 
+class ParameterEditorCallback(object):
+    """Object to store callbacks for the Parameter Editor in"""
+    def lineset_pre(self, scene, layer, lineset) -> None:
+        raise NotImplementedError()
 
-def add_svg_fill_shader(scene, shaders_list, lineset) -> None:
-    # this is very ugly/hacky: need to find a better way to not execute/register a callback if undesired
-    if not scene.svg_export.object_fill:
-        return False
+    def modifier_post(self, scene, layer, lineset) -> [StrokeShader,]:
+        raise NotImplementedError()
 
-    # reset the stroke selection (but don't delete the already generated ones)
-    Operators.reset(delete_strokes=False)
-    # shape detection
-    upred = AndUP1D(QuantitativeInvisibilityUP1D(0), ContourUP1D())
-    Operators.select(upred)
-    # chain when the same shape and visible
-    bpred = SameShapeIdBP1D()
-    Operators.bidirectional_chain(ChainPredicateIterator(upred, bpred), NotUP1D(QuantitativeInvisibilityUP1D(0)))
-    # sort according to the distance from camera
-    Operators.sort(pyZBP1D())
-    # render and write fills
-    path = create_path(scene.svg_export.filepath, scene)
-    renderer = SVGFillShader(path, render_height(scene), lineset.name)
-    Operators.create(TrueUP1D(), [renderer,])
-    renderer.write()
+    def lineset_post(self, scene, layer, lineset) -> None:
+        raise NotImplementedError()
 
+class SVGPathShaderCallback(ParameterEditorCallback):
+    @classmethod
+    def modifier_post(cls, scene, layer, lineset) -> [StrokeShader,]:
+        if not (scene.render.use_freestyle and scene.svg_export.use_svg_export):
+            return
 
-def write_svg_export_shader(scene, shaders_list, lineset):
-    for shader in shaders_list:
-        try:
-            shader.write()
-        except AttributeError:
-            pass
+        filepath = create_path(scene.svg_export.filepath, scene)
+        height = render_height(scene)
+        split = scene.svg_export.split_at_invisible
+        cls.shader = SVGPathShader.from_lineset(lineset, filepath, height, split, scene.frame_current)
+        return [cls.shader]
+
+    @classmethod
+    def lineset_post(cls, *args):
+        cls.shader.write()
+
+class SVGFillShaderCallback(ParameterEditorCallback):
+    @staticmethod
+    def lineset_post(scene, layer, lineset) -> [StrokeShader,]:
+        if not (scene.render.use_freestyle and scene.svg_export.use_svg_export and scene.svg_export.object_fill):
+            return
+
+        # reset the stroke selection (but don't delete the already generated ones)
+        Operators.reset(delete_strokes=False)
+        # shape detection
+        upred = AndUP1D(QuantitativeInvisibilityUP1D(0), ContourUP1D())
+        Operators.select(upred)
+        # chain when the same shape and visible
+        bpred = SameShapeIdBP1D()
+        Operators.bidirectional_chain(ChainPredicateIterator(upred, bpred), NotUP1D(QuantitativeInvisibilityUP1D(0)))
+        # sort according to the distance from camera
+        Operators.sort(pyZBP1D())
+        # render and write fills
+        path = create_path(scene.svg_export.filepath, scene)
+        shader = SVGFillShader(path, render_height(scene), lineset.name)
+        Operators.create(TrueUP1D(), [shader,])
+        shader.write()
 
 
 def indent_xml(elem, level=0, indentsize=4):
@@ -423,11 +443,11 @@ def register():
     bpy.types.Scene.svg_export = bpy.props.PointerProperty(type=svg_export)
     # add callbacks
     bpy.app.handlers.render_init.append(svg_export_header)
-    bpy.app.handlers.render_post.append(svg_export_animation)
+    bpy.app.handlers.render_complete.append(svg_export_animation)
     # manipulate shaders list
-    parameter_editor.callbacks_style_post.append(add_svg_export_shader)
-    parameter_editor.callbacks_lineset_post.append(add_svg_fill_shader)
-    parameter_editor.callbacks_lineset_post.append(write_svg_export_shader)
+    parameter_editor.callbacks_modifiers_post.append(SVGPathShaderCallback.modifier_post)
+    parameter_editor.callbacks_lineset_post.append(SVGPathShaderCallback.lineset_post)
+    parameter_editor.callbacks_lineset_post.append(SVGFillShaderCallback.lineset_post)
 
 
 def unregister():
@@ -438,11 +458,11 @@ def unregister():
     del bpy.types.Scene.svg_export
     # remove callbacks
     bpy.app.handlers.render_init.remove(svg_export_header)
-    bpy.app.handlers.render_post.remove(svg_export_animation)
+    bpy.app.handlers.render_complete.remove(svg_export_animation)
     # manipulate shaders list
-    parameter_editor.callbacks_style_post.remove(add_svg_export_shader)
-    parameter_editor.callbacks_lineset_post.remove(add_svg_fill_shader)
-    parameter_editor.callbacks_lineset_post.remove(write_svg_export_shader)
+    parameter_editor.callbacks_modifiers_post.remove(SVGPathShaderCallback.modifier_post)
+    parameter_editor.callbacks_lineset_post.remove(SVGPathShaderCallback.lineset_post)
+    parameter_editor.callbacks_lineset_post.remove(SVGFillShaderCallback.lineset_post)
 
 
 if __name__ == "__main__":

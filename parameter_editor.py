@@ -112,7 +112,7 @@ from itertools import cycle, tee
 # lists of callback functions
 # WARNING: highly experimental, not suitable for production use
 callbacks_lineset_pre = []
-callbacks_style_post = []
+callbacks_modifiers_post = []
 callbacks_lineset_post = []
 
 
@@ -1195,29 +1195,32 @@ def process(layer_name, lineset_name):
                 has_tex = True
     if has_tex:
         shaders_list.append(StrokeTextureStepShader(linestyle.texture_spacing))
+
+    # execute post-base stylization callbacks
+    for f in callbacks_modifiers_post:
+        shaders_list.extend(f(scene, layer, lineset))
+
     # -- Stroke caps -- #
     if linestyle.caps == 'ROUND':
         shaders_list.append(RoundCapShader())
     elif linestyle.caps == 'SQUARE':
         shaders_list.append(SquareCapShader())
+
+
     # -- Dashed line -- #
     if linestyle.use_dashed_line:
         pattern = get_dashed_pattern(linestyle)
         if len(pattern) > 0:
             shaders_list.append(DashedLineShader(pattern))
 
-    # execute post-base stylization callbacks
-    for f in callbacks_style_post:
-        shader, index = f(scene, shaders_list, lineset) or (None, None)
-        if shader is not None:
-            shaders_list.insert(index, shader)
+    
 
     # create strokes using the shaders list
     Operators.create(TrueUP1D(), shaders_list)
 
     # execute line set post-processing callback functions
     for f in callbacks_lineset_post:
-        f(scene, shaders_list, lineset)
+        f(scene, layer, lineset)
 
 
 
