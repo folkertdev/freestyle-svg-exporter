@@ -26,9 +26,11 @@ from parameter_editor import get_dashed_pattern
 
 from bpy.props import StringProperty, BoolProperty, EnumProperty, PointerProperty
 from bpy.path import abspath
+from bpy.app.handlers import persistent
 
 from itertools import repeat, dropwhile
 from collections import OrderedDict
+from mathutils import Vector
 
 # register namespaces
 et.register_namespace("", "http://www.w3.org/2000/svg")
@@ -53,28 +55,12 @@ def render_height(scene) -> int:
     return int(scene.render.resolution_y * scene.render.resolution_percentage / 100)
     
 
-def create_path(filepath, scene) -> str:
+def create_path(scene) -> str:
     """Creates the output path for the svg file"""
-    filepath = bpy.path.abspath(filepath)
-    extension = "_{:04}.svg".format(scene.frame_current)
-    if scene.svg_export.mode == 'FRAME':
-        # if a filename is given, add the frame number and safe
-        if os.path.isfile(filepath):
-            return filepath.split('.')[0] + extension
-        # if a directory is given, use the blendfile's name as the filename
-        elif os.path.isdir(filepath):
-            filename = bpy.path.basename(bpy.context.blend_data.filepath).split(".")[0]
-            return os.path.join(filepath, filename + extension)
-        # else, try to create a file at the specified location and proceed.
-        else:
-            # errors in creating the file will be printed to the console
-            # for instance, when the file is not saved (has no name) this will fail
-            open(filepath, 'a').close()
-            return filepath.split('.')[0] + extension
-    else:
-        if not os.path.isfile(filepath):
-            open(filepath, 'a').close()
-        return filepath
+    # current frame if rendering a single frame
+    # start frame when rendering an animation
+    frame = scene.frame_current if scene.svg_export.mode == 'FRAME' else scene.frame_start
+    return scene.render.frame_path(frame).split(".")[0] + ".svg"
 
 
 class svg_export(bpy.types.PropertyGroup):
@@ -82,8 +68,8 @@ class svg_export(bpy.types.PropertyGroup):
     bl_idname = "RENDER_PT_svg_export"
 
     use_svg_export = BoolProperty(name="SVG Export", description="Export Freestyle edges to an .svg format")
-    filepath = StringProperty(name="filepath", description="location to save the .svg file to", subtype='FILE_PATH',
-                              default=bpy.context.user_preferences.filepaths.render_output_directory)
+    # filepath = StringProperty(name="filepath", description="location to save the .svg file to", subtype='FILE_PATH',
+    #                           default=bpy.context.user_preferences.filepaths.render_output_directory)
 
     
     split_at_invisible = BoolProperty(name="Split at Invisible", description="Split the stroke at an invisible vertex")
@@ -128,8 +114,8 @@ class SVGExporterPanel(bpy.types.Panel):
         row = layout.row()
         row.prop(svg, "mode", expand=True)
 
-        row = layout.row()
-        row.prop(svg, "filepath", text="")
+        # row = layout.row()
+        # row.prop(svg, "filepath", text="")
 
         row = layout.row()
         row.prop(svg, "split_at_invisible")
@@ -138,7 +124,7 @@ class SVGExporterPanel(bpy.types.Panel):
         row = layout.row()
         row.prop(svg, "linejoin", expand=True)
 
-
+@persistent
 def svg_export_header(scene):  
     svg = scene.svg_export
     render = scene.render
@@ -146,20 +132,20 @@ def svg_export_header(scene):
     if not (render.use_freestyle and scene.svg_export.use_svg_export):
         return
 
-    width = int(render.resolution_x * render.resolution_percentage / 100)
-    height = int(render.resolution_y * render.resolution_percentage / 100)
+    width, height = Vector((render.resolution_x, render.resolution_y)) * render.resolution_percentage / 100
         
     # this may fail still. The error is printed to the console. 
-    with open(create_path(svg.filepath, scene), "w") as f:
-        f.write(svg_primitive.format(width, height))
+    with open(create_path(scene), "w") as f:
+        f.write(svg_primitive.format(int(width), int(height)))
         
-
+@persistent
 def svg_export_animation(scene):
     """makes an animation of the exported SVG file """
     render = scene.render
     svg = scene.svg_export
+
     if render.use_freestyle and svg.use_svg_export and svg.mode == 'ANIMATION':
-        write_animation(create_path(svg.filepath, scene), scene.frame_start, render.fps)
+        write_animation(create_path(scene), scene.frame_start, render.fps)
 
 
 def write_animation(filepath, frame_begin, fps=25):
@@ -174,6 +160,8 @@ def write_animation(filepath, frame_begin, fps=25):
         fills = lineset.findall(".//svg:g[@inkscape:groupmode='fills']", namespaces=namespaces)
         fills = reversed(fills) if fills else repeat(None, len(frames))
 
+        print("-" * 10, "animate", "-" * 10)
+
         n_of_frames = len(frames)
         keyTimes = ";".join(str(round(x / n_of_frames, 3)) for x in range(n_of_frames)) + ";1"
 
@@ -185,6 +173,9 @@ def write_animation(filepath, frame_begin, fps=25):
             'dur': str(n_of_frames / fps) + 's',
             }
         
+        print(style)
+        print(n_of_frames)
+
         for j, (frame, fill) in enumerate(zip(frames, fills)):
             id = 'anim_{}_{:06n}'.format(name, j + frame_begin)
             # create animate tag
@@ -194,8 +185,8 @@ def write_animation(filepath, frame_begin, fps=25):
             # add to the current frame
             frame.append(frame_anim)
             # append the animation to the associated fill as well (if valid)
-            if fill is not None:
-                fill.append(frame_anim)
+            # is this too hacky?
+            fill.append(frame_anim) if fill is not None else ...
 
     # write SVG to file
     indent_xml(root)
@@ -386,10 +377,9 @@ class SVGPathShaderCallback(ParameterEditorCallback):
         if not (scene.render.use_freestyle and scene.svg_export.use_svg_export):
             return
 
-        filepath = create_path(scene.svg_export.filepath, scene)
-        height = render_height(scene)
         split = scene.svg_export.split_at_invisible
-        cls.shader = SVGPathShader.from_lineset(lineset, filepath, height, split, scene.frame_current)
+        cls.shader = SVGPathShader.from_lineset(lineset, create_path(scene), 
+                                                render_height(scene), split, scene.frame_current)
         return [cls.shader]
 
     @classmethod
@@ -398,11 +388,11 @@ class SVGPathShaderCallback(ParameterEditorCallback):
 
 class SVGFillShaderCallback(ParameterEditorCallback):
     @staticmethod
-    def lineset_post(scene, layer, lineset) -> [StrokeShader,]:
+    def lineset_post(scene, layer, lineset) -> None:
         if not (scene.render.use_freestyle and scene.svg_export.use_svg_export and scene.svg_export.object_fill):
             return
 
-        # reset the stroke selection (but don't delete the already generated ones)
+        # reset the stroke selection (but don't delete the already generated strokes)
         Operators.reset(delete_strokes=False)
         # shape detection
         upred = AndUP1D(QuantitativeInvisibilityUP1D(0), ContourUP1D())
@@ -413,8 +403,7 @@ class SVGFillShaderCallback(ParameterEditorCallback):
         # sort according to the distance from camera
         Operators.sort(pyZBP1D())
         # render and write fills
-        path = create_path(scene.svg_export.filepath, scene)
-        shader = SVGFillShader(path, render_height(scene), lineset.name)
+        shader = SVGFillShader(create_path(scene), render_height(scene), lineset.name)
         Operators.create(TrueUP1D(), [shader,])
         shader.write()
 

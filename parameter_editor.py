@@ -540,7 +540,6 @@ class PerlinNoise2DShader(StrokeShader):
     """
     Displaces the stroke using the strokes coordinates.  This means
     that in a scene no strokes will be distorded identically.
-
     More information on the noise shaders can be found at:
     freestyleintegration.wordpress.com/2011/09/25/development-updates-on-september-25/
     """
@@ -1221,6 +1220,3 @@ def process(layer_name, lineset_name):
     # execute line set post-processing callback functions
     for f in callbacks_lineset_post:
         f(scene, layer, lineset)
-
-
-
