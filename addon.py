@@ -68,10 +68,6 @@ class svg_export(bpy.types.PropertyGroup):
     bl_idname = "RENDER_PT_svg_export"
 
     use_svg_export = BoolProperty(name="SVG Export", description="Export Freestyle edges to an .svg format")
-    # filepath = StringProperty(name="filepath", description="location to save the .svg file to", subtype='FILE_PATH',
-    #                           default=bpy.context.user_preferences.filepaths.render_output_directory)
-
-    
     split_at_invisible = BoolProperty(name="Split at Invisible", description="Split the stroke at an invisible vertex")
     object_fill = BoolProperty(name="Fill Contours", description="Fill the contour with the object's material color")
 
@@ -113,9 +109,6 @@ class SVGExporterPanel(bpy.types.Panel):
 
         row = layout.row()
         row.prop(svg, "mode", expand=True)
-
-        # row = layout.row()
-        # row.prop(svg, "filepath", text="")
 
         row = layout.row()
         row.prop(svg, "split_at_invisible")
@@ -185,8 +178,8 @@ def write_animation(filepath, frame_begin, fps=25):
             # add to the current frame
             frame.append(frame_anim)
             # append the animation to the associated fill as well (if valid)
-            # is this too hacky?
-            fill.append(frame_anim) if fill is not None else ...
+            if fill is not None:
+                fill.append(frame_anim)
 
     # write SVG to file
     indent_xml(root)
@@ -382,8 +375,12 @@ class SVGPathShaderCallback(ParameterEditorCallback):
                                                 render_height(scene), split, scene.frame_current)
         return [cls.shader]
 
+
     @classmethod
-    def lineset_post(cls, *args):
+    def lineset_post(cls, scene, *args):
+        if not (scene.render.use_freestyle and scene.svg_export.use_svg_export):
+            return
+
         cls.shader.write()
 
 class SVGFillShaderCallback(ParameterEditorCallback):
