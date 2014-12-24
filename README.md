@@ -1,11 +1,13 @@
 freestyle-svg-exporter
 ======================
 
-a Blender addon for exporting stylized lines created by the Freestyle render engine to an SVG format. 
+A Blender addon for exporting stylized lines created by the Freestyle render engine to an SVG format. 
+This is the development version: More features, more bugs!
 
 To use (for now):
-- find parameter_editor.py (at ../blender/release/scripts/freestyle/modules/ or ../blender/2.7x/scrips/freestyle/modules/) and replace it with the version in this repository/patch
-- register addon.py as an addon via User Preferences > Addons > install from file
+- overwrite the current addon file with the one in this repository. 
+
+- enable the addon via User Preferences > Addons > SVG
 
 The GUI for the exporter should now be visible in the render tab of the properties window.
 
