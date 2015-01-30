@@ -519,6 +519,23 @@ def indent_xml(elem, level=0, indentsize=4):
     elif level and (not elem.tail or not elem.tail.strip()):
         elem.tail = i
 
+@contextmanager
+def SVGRenderContextManager(scene, name, style, res_y, frame_current, split_at_invisible=False):
+    """A context manager meant to enable svg exporting from python style modules.
+
+    In order to function correctly, the Freestyle SVG Export addon has to be enabled.
+
+    example:
+    with SVGRenderContextManager(...) as SVGPathShader:
+        ...
+        shaders_list.append(SVGPathShader)
+        Operators.create(...)
+    """
+    # prepare the shader object and give it back to the "master" context
+    filepath = create_path(scene)
+    s = SVGPathShader(name, style, filepath, res_y, split_at_invisible, frame_current)
+    yield s
+    s.write()
 
 classes = (
     SVGExporterPanel,
