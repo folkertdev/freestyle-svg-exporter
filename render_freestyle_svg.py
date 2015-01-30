@@ -92,11 +92,15 @@ class RenderState:
     # Note that this flag is set to False only after the first frame
     # has been written to file.
     is_preview = True
+    # Flag for writing fills (this should only be done once per frame)
+    is_fill_written = False
 
 
 @persistent
 def render_init(scene):
     RenderState.is_preview = True
+    RenderState.is_fill_written = False
+    
 
 
 @persistent
@@ -186,17 +190,15 @@ class SVGExporterPanel(bpy.types.Panel):
 
 
 @persistent
-def svg_export_header(scene, *, force_creation=False, path=""):
-    if not force_creation:
-        if not (scene.render.use_freestyle and scene.svg_export.use_svg_export):
-            return
+def svg_export_header(scene):
+    if not (scene.render.use_freestyle and scene.svg_export.use_svg_export):
+        return
 
-        # write the header only for the first frame when animation is being rendered
-        if not is_preview_render(scene) and scene.frame_current != scene.frame_start:
-            return
+    # write the header only for the first frame when animation is being rendered
+    if not is_preview_render(scene) and scene.frame_current != scene.frame_start:
+        return
     # this may fail still. The error is printed to the console.
-    path = path or create_path(scene)
-    with open(path, "w+") as f:
+    with open(create_path(scene), "w+") as f:
         f.write(svg_primitive.format(render_width(scene), render_height(scene)))
 
 
@@ -310,8 +312,6 @@ class SVGPathShader(StrokeShader):
 
     def write(self):
         """Write SVG data tree to file """
-        if not os.path.isfile(self.filepath):
-            raise RuntimeError("file does not exist")
         tree = et.parse(self.filepath)
         root = tree.getroot()
         name = self._name
@@ -411,16 +411,13 @@ class SVGFillShader(StrokeShader):
                 elems.append(et.XML("".join(self.pathgen((sv.point for sv in stroke), p, self.h))))
 
         # make <g> for lineset as a whole (don't overwrite)
-        lineset_group = tree.find(".//svg:g[@id='{}']".format(name), namespaces=namespaces)
-        if lineset_group is None:
-            lineset_group = et.XML('<g/>')
-            lineset_group.attrib = {
-                'id': name,
-                'xmlns:inkscape': namespaces["inkscape"],
-                'inkscape:groupmode': 'lineset',
-                'inkscape:label': name,
-                }
-            root.insert(0, lineset_group)
+        fill_group = tree.find(".//svg:g[@id='Fills']", namespaces=namespaces)
+        if fill_group is None:
+            fill_group = et.XML('<g/>')
+            fill_group.attrib = {
+                'inkscape:groupmode': 'layer',
+                'id': 'Fills',
+            root.insert(0, fill_group)
 
         if scene.svg_export.mode == 'ANIMATION':
             # add the fills to the <g> of the current frame
@@ -477,6 +474,9 @@ class SVGPathShaderCallback(ParameterEditorCallback):
     @classmethod
     def lineset_post(cls, scene, *args):
         if not (scene.render.use_freestyle and scene.svg_export.use_svg_export):
+            return
+
+        if RenderState.is_fill_written:
             return
 
         cls.shader.write()
