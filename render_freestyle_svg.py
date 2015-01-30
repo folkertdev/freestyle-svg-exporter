@@ -417,6 +417,7 @@ class SVGFillShader(StrokeShader):
             fill_group.attrib = {
                 'inkscape:groupmode': 'layer',
                 'id': 'Fills',
+                }
             root.insert(0, fill_group)
 
         if scene.svg_export.mode == 'ANIMATION':
