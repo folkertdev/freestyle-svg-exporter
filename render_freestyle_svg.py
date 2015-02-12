@@ -318,18 +318,15 @@ class SVGPathShader(StrokeShader):
         name = self._name
         scene = bpy.context.scene
 
-        # make <g> for lineset as a whole (don't overwrite)
-        #lineset_group = tree.find(".//svg:g[@id='{}']".format(name), namespaces=namespaces)
-        lineset_group = None 
-        if lineset_group is None:
-            lineset_group = et.XML('<g/>')
-            lineset_group.attrib = {
-                'id': name,
-                'xmlns:inkscape': namespaces["inkscape"],
-                'inkscape:groupmode': 'lineset',
-                'inkscape:label': name,
-                }
-            root.append(lineset_group)
+        # make <g> for lineset as a whole 
+        lineset_group = et.XML('<g/>')
+        lineset_group.attrib = {
+            'id': name,
+            'xmlns:inkscape': namespaces["inkscape"],
+            'inkscape:groupmode': 'lineset',
+            'inkscape:label': name,
+            }
+        root.append(lineset_group)
 
         # make <g> for the current frame
         id = "frame_{:04n}".format(self.frame_current)
@@ -364,9 +361,6 @@ class SVGFillShader(StrokeShader):
         # use an ordered dict to maintain input and z-order
         self.shape_map = OrderedDict()
         self.filepath = filepath
-        if not os.path.isfile(filepath):
-            with open(filepath, "w"):
-                pass
         self.h = height
         self._name = name
 
@@ -410,19 +404,14 @@ class SVGFillShader(StrokeShader):
                 elems.append(et.XML("".join(self.pathgen((sv.point for sv in stroke), p, self.h))))
 
         # make <g> for lineset as a whole (don't overwrite)
-        #fill_group = tree.find(".//svg:g[@id='Fills']", namespaces=namespaces)
-        fill_group = None 
-        if fill_group is None:
-             # get the current lineset group. if it's None we're in trouble, so may as well error hard. 
-            lineset_group = tree.find(".//svg:g[@id='{}']".format(name), namespaces=namespaces)
-
-            fill_group = et.XML('<g/>')
-            fill_group.attrib = {
-                'inkscape:groupmode': 'layer',
-                'id': 'Fills',
-                }
-            print("adding fills to: ", name)
-            lineset_group.insert(0, fill_group)
+        fill_group = et.XML('<g/>')
+        fill_group.attrib = {
+            'inkscape:groupmode': 'layer',
+            'id': 'Fills',
+            }
+        # get the current lineset group. if it's None we're in trouble, so may as well error hard. 
+        lineset_group = tree.find(".//svg:g[@id='{}']".format(name), namespaces=namespaces)
+        lineset_group.insert(0, fill_group)
 
         if scene.svg_export.mode == 'ANIMATION':
             # add the fills to the <g> of the current frame
@@ -495,8 +484,8 @@ class SVGFillShaderCallback(ParameterEditorCallback):
 
         # reset the stroke selection (but don't delete the already generated strokes)
         Operators.reset(delete_strokes=False)
-        # the selection is also intact
-
+        upred = AndUP1D(QuantitativeInvisibilityUP1D(0), ContourUP1D())
+        Operators.select(upred)
         # chain when the same shape and visible
         bpred = SameShapeIdBP1D()
         Operators.bidirectional_chain(ChainPredicateIterator(upred, bpred), NotUP1D(QuantitativeInvisibilityUP1D(0)))
@@ -504,7 +493,7 @@ class SVGFillShaderCallback(ParameterEditorCallback):
         Operators.sort(pyZBP1D())
         # render and write fills
         shader = SVGFillShader(create_path(scene), render_height(scene), name=layer.name + "_" + lineset.name)
-        Operators.create(TrueUP1D(), [shader, ]))
+        Operators.create(TrueUP1D(), [shader, ])
         shader.write()
 
 
