@@ -47,11 +47,12 @@ from freestyle.functions import GetShapeF1D, CurveMaterialF0D
 from freestyle.predicates import (
         AndUP1D,
         ContourUP1D,
-        SameShapeIdBP1D,
         NotUP1D,
-        QuantitativeInvisibilityUP1D,
-        TrueUP1D,
+        ObjectNamesUP1D,
         pyZBP1D,
+        QuantitativeInvisibilityUP1D,
+        SameShapeIdBP1D,
+        TrueUP1D,
         )
 from freestyle.chainingiterators import ChainPredicateIterator
 from parameter_editor import get_dashed_pattern
@@ -318,7 +319,8 @@ class SVGPathShader(StrokeShader):
         scene = bpy.context.scene
 
         # make <g> for lineset as a whole (don't overwrite)
-        lineset_group = tree.find(".//svg:g[@id='{}']".format(name), namespaces=namespaces)
+        #lineset_group = tree.find(".//svg:g[@id='{}']".format(name), namespaces=namespaces)
+        lineset_group = None 
         if lineset_group is None:
             lineset_group = et.XML('<g/>')
             lineset_group.attrib = {
@@ -327,7 +329,7 @@ class SVGPathShader(StrokeShader):
                 'inkscape:groupmode': 'lineset',
                 'inkscape:label': name,
                 }
-            root.insert(0, lineset_group)
+            root.append(lineset_group)
 
         # make <g> for the current frame
         id = "frame_{:04n}".format(self.frame_current)
@@ -363,11 +365,8 @@ class SVGFillShader(StrokeShader):
         self.shape_map = OrderedDict()
         self.filepath = filepath
         if not os.path.isfile(filepath):
-            print("creating svg file")
             with open(filepath, "w"):
                 pass
-        else:
-            print("svg file exists")
         self.h = height
         self._name = name
 
@@ -411,14 +410,19 @@ class SVGFillShader(StrokeShader):
                 elems.append(et.XML("".join(self.pathgen((sv.point for sv in stroke), p, self.h))))
 
         # make <g> for lineset as a whole (don't overwrite)
-        fill_group = tree.find(".//svg:g[@id='Fills']", namespaces=namespaces)
+        #fill_group = tree.find(".//svg:g[@id='Fills']", namespaces=namespaces)
+        fill_group = None 
         if fill_group is None:
+             # get the current lineset group. if it's None we're in trouble, so may as well error hard. 
+            lineset_group = tree.find(".//svg:g[@id='{}']".format(name), namespaces=namespaces)
+
             fill_group = et.XML('<g/>')
             fill_group.attrib = {
                 'inkscape:groupmode': 'layer',
                 'id': 'Fills',
                 }
-            root.insert(0, fill_group)
+            print("adding fills to: ", name)
+            lineset_group.insert(0, fill_group)
 
         if scene.svg_export.mode == 'ANIMATION':
             # add the fills to the <g> of the current frame
@@ -440,7 +444,7 @@ class SVGFillShader(StrokeShader):
         if scene.svg_export.mode == 'ANIMATION':
             frame_group.insert(0, stroke_group)
         else:
-            lineset_group.insert(0, stroke_group)
+            fill_group.append(stroke_group)
 
         # write SVG to file
         indent_xml(root)
@@ -469,7 +473,7 @@ class SVGPathShaderCallback(ParameterEditorCallback):
         split = scene.svg_export.split_at_invisible
         cls.shader = SVGPathShader.from_lineset(
                 lineset, create_path(scene),
-                render_height(scene), split, scene.frame_current)
+                render_height(scene), split, scene.frame_current, name=layer.name + "_" + lineset.name)
         return [cls.shader]
 
     @classmethod
@@ -479,29 +483,28 @@ class SVGPathShaderCallback(ParameterEditorCallback):
 
         if RenderState.is_fill_written:
             return
-
         cls.shader.write()
 
 
 class SVGFillShaderCallback(ParameterEditorCallback):
     @staticmethod
     def lineset_post(scene, layer, lineset):
+
         if not (scene.render.use_freestyle and scene.svg_export.use_svg_export and scene.svg_export.object_fill):
             return
 
         # reset the stroke selection (but don't delete the already generated strokes)
         Operators.reset(delete_strokes=False)
-        # shape detection
-        upred = AndUP1D(QuantitativeInvisibilityUP1D(0), ContourUP1D())
-        Operators.select(upred)
+        # the selection is also intact
+
         # chain when the same shape and visible
         bpred = SameShapeIdBP1D()
         Operators.bidirectional_chain(ChainPredicateIterator(upred, bpred), NotUP1D(QuantitativeInvisibilityUP1D(0)))
         # sort according to the distance from camera
         Operators.sort(pyZBP1D())
         # render and write fills
-        shader = SVGFillShader(create_path(scene), render_height(scene), lineset.name)
-        Operators.create(TrueUP1D(), [shader, ])
+        shader = SVGFillShader(create_path(scene), render_height(scene), name=layer.name + "_" + lineset.name)
+        Operators.create(TrueUP1D(), [shader, ]))
         shader.write()
 
 

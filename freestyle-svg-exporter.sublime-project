@@ -1,0 +1,13 @@
+{
+	"folders":
+	[
+		{
+			"follow_symlinks": true,
+			"path": "/root/blender-git/blender/release/scripts/addons"
+		},
+		{
+			"follow_symlinks": true,
+			"path": "."
+		}
+	]
+}

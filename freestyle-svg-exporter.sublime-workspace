@@ -1,0 +1,391 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"thickness",
+				"thickness_min"
+			],
+			[
+				"thick",
+				"thickness_max"
+			],
+			[
+				"Kr",
+				"Kr_max"
+			],
+			[
+				"thickn",
+				"thickness_ratio"
+			],
+			[
+				"thic",
+				"thickness_ratio"
+			],
+			[
+				"K_",
+				"Kr_min"
+			],
+			[
+				"K",
+				"Kr_max"
+			],
+			[
+				"get",
+				"get_strokes_size"
+			],
+			[
+				"length",
+				"length_2d"
+			],
+			[
+				"shaders",
+				"shaders_list"
+			],
+			[
+				"is",
+				"is_fill_written"
+			],
+			[
+				"Render",
+				"RenderState"
+			],
+			[
+				"contex",
+				"contextmanager"
+			],
+			[
+				"svg_ex",
+				"svg_export_header"
+			],
+			[
+				"frame",
+				"frame_current"
+			],
+			[
+				"spli",
+				"split_at_invisible"
+			],
+			[
+				"SVG",
+				"SVGPathShader"
+			],
+			[
+				"last",
+				"last_stack"
+			],
+			[
+				"first",
+				"first_stack"
+			],
+			[
+				"text",
+				"textblock"
+			],
+			[
+				"points",
+				"points_simplified"
+			],
+			[
+				"Print",
+				"PRINT_DEBUG"
+			],
+			[
+				"Wijz",
+				"Wijzigingen"
+			],
+			[
+				"wij",
+				"Wijzigingen"
+			],
+			[
+				"set",
+				"set_week_to_session"
+			],
+			[
+				"db",
+				"db_result"
+			],
+			[
+				"from",
+				"from_db"
+			],
+			[
+				"week",
+				"weeknumber"
+			],
+			[
+				"locatio",
+				"locations"
+			],
+			[
+				"time_",
+				"time_from_current"
+			],
+			[
+				"data",
+				"data_from_id"
+			],
+			[
+				"m",
+				"mysql_connection"
+			],
+			[
+				"push",
+				"push_note"
+			],
+			[
+				"wijz",
+				"wijzigingen_from_soup"
+			],
+			[
+				"wijzi",
+				"wijziging"
+			],
+			[
+				"defal",
+				"defaultdict"
+			],
+			[
+				"pre",
+				"prepared_request"
+			],
+			[
+				"find",
+				"findall"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "Packages/Python 3/Python3.sublime-build",
+	"command_palette":
+	{
+		"height": 75.0,
+		"selected_items":
+		[
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"set syntax",
+				"Set Syntax: Python"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 139.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '2deb499853c4371624f5a07e27c334aa' + 'bf8c4e67d14fb0525ba4f89698a6d7e1'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/folkert/freestyle/freestyle-svg-exporter"
+	],
+	"file_history":
+	[
+		"/root/blender-git/blender/.git/info/exclude",
+		"/home/folkert/freestyle/renders/simplification.svg",
+		"/home/folkert/.config/sublime-text-3/Packages/User/SFTP.sublime-settings",
+		"/home/folkert/roosterhacks/cookiejar.json",
+		"/home/folkert/roosterhacks/result.html",
+		"/home/folkert/roosterhacks2/sftp-config.json",
+		"/tmp/sublime-sftp-browse-1422304605/alecm/rooster/crawl_for_updates.py",
+		"/home/folkert/blender/construct_SShape.py",
+		"/tmp/sublime-sftp-browse-1422304605/alecm/rooster/session.py",
+		"/home/folkert/.config/sublime-text-3/Packages/User/sftp_servers/alecm",
+		"/tmp/sublime-sftp-browse-1422304605/alecm/rooster/timestamp.json",
+		"/tmp/sublime-sftp-browse-1422304605/alecm/rooster/periodic_update_checker.py",
+		"/run/user/1000/gvfs/ftp:host=alecm.nl/rooster/roosterhacks.py",
+		"/run/user/1000/gvfs/ftp:host=alecm.nl/rooster/wijzigingen.py",
+		"/tmp/sublime-sftp-browse-1422298784/alecm/rooster/roosterpush.py",
+		"/tmp/sublime-sftp-browse-1422304605/alecm/rooster/database.py",
+		"/tmp/sublime-sftp-browse-1422304605/alecm/rooster/cookiejar.json",
+		"/run/user/1000/gvfs/ftp:host=alecm.nl/rooster/database.py",
+		"/usr/lib/python3.4/mysql/lib/__init__.py",
+		"/run/user/1000/gvfs/ftp:host=alecm.nl/rooster/tables (copy).py",
+		"/tmp/sublime-sftp-browse-1422203421/alecm/rooster/roosterhacks.py",
+		"/tmp/sublime-sftp-browse-1422203421/alecm/rooster/session.py",
+		"/tmp/sublime-sftp-browse-1422203421/alecm/rooster/test.py",
+		"/tmp/sublime-sftp-browse-1422203421/alecm/rooster/tables.js",
+		"/tmp/sublime-sftp-browse-1422203421/alecm/rooster/tables.py",
+		"/tmp/sublime-sftp-browse-1422203421/alecm/rooster/roosterdata.html",
+		"/tmp/sublime-sftp-browse-1422203421/alecm/rooster/wijzigingen.py",
+		"/tmp/sublime-sftp-browse-1422203421/alecm/rooster/cookiejar.json",
+		"/tmp/sublime-sftp-browse-1422216703/alecm/rooster/test.py",
+		"/home/folkert/.config/sublime-text-3/Packages/User/python34.sublime-build",
+		"/tmp/sublime-sftp-browse-1422204733/alecm/rooster/wijzigingen.py",
+		"/tmp/sublime-sftp-browse-1422203438/alecm/rooster/session.py",
+		"/tmp/sublime-sftp-browse-1422203458/alecm/rooster/tables.py",
+		"/home/folkert/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+		"/home/folkert/.config/sublime-text-3/Packages/User/Default (Linux).sublime-keymap",
+		"/tmp/sublime-sftp-browse-1422199512/alecm/s/session.py",
+		"/tmp/sublime-sftp-browse-1422199512/alecm/rooster/tables.py",
+		"/tmp/sublime-sftp-browse-1422202735/alecm/rooster/tables.py",
+		"/tmp/sublime-sftp-browse-1422199512/alecm/rooster/roosterhacks.py",
+		"/tmp/sublime-sftp-browse-1422202814/alecm/rooster/session.py",
+		"/tmp/sublime-sftp-browse-1422203057/alecm/rooster/tables.py",
+		"/home/folkert/.config/sublime-text-3/Packages/Default/Default (Linux).sublime-keymap",
+		"/home/folkert/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings"
+	],
+	"find":
+	{
+		"height": 37.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"tangent",
+			"kr",
+			"crease_An",
+			"thickness pos",
+			"simplif",
+			"SinusDisplacementShader",
+			"thicknessN",
+			"thickness",
+			"Fills",
+			"remove",
+			"render_init",
+			")\n",
+			"['y']",
+			"['x']",
+			"get_update_time",
+			"timer",
+			"ctrl+b"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			".y",
+			".x",
+			"time_from_request"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 29.0
+	},
+	"input":
+	{
+		"height": 37.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 232.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.sftp":
+	{
+		"height": 129.0
+	},
+	"project": "freestyle-svg-exporter.sublime-project",
+	"replace":
+	{
+		"height": 68.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 269.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
