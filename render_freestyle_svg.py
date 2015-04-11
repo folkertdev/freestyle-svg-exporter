@@ -419,9 +419,8 @@ class SVGFillBuilder:
         return merged_strokes
 
     @staticmethod
-    def stroke_to_svg(stroke, height, curvemat=CurveMaterialF0D()) -> et.XML:
-        material = curvemat(Interface0DIterator(stroke))
-        *color, alpha = material.diffuse
+    def stroke_to_svg(stroke, height):
+        *color, alpha = diffuse_from_stroke(stroke)
         path = '<path fill-rule="evenodd" stroke="none" ' \
                'fill-opacity="{}" fill="rgb({}, {}, {})"  d=" M '.format(alpha, *(int(255 * c) for c in color))
         vertices = (svert.point for svert in stroke)
@@ -532,6 +531,39 @@ def diffuse_from_fedge(fe):
         right, left = fe.material_right, fe.material_left
         return (right if (right.priority > left.priority) else left).diffuse
 
+# Binary Boolean operations still have some problems in the master version
+class AndBP1D(BinaryPredicate1D):
+    def __init__(self, *predicates):
+        BinaryPredicate1D.__init__(self)
+        self._predicates = predicates
+        if len(predicates) < 1:
+            raise ValueError("Expected two or more BinaryPredicate1D, got ", len(predicates))
+
+    def __call__(self, i1, i2):
+        return all(pred(i1, i2) for pred in self._predicates)
+
+
+class OrBP1D(BinaryPredicate1D):
+    def __init__(self, *predicates):
+        BinaryPredicate1D.__init__(self)
+        self._predicates = predicates
+        if len(predicates) < 1:
+            raise ValueError("Expected two or more BinaryPredicate1D, got ", len(predicates))
+
+    def __call__(self, i1, i2):
+        return any(pred(i1, i2) for pred in self._predicates)
+
+
+class NotBP1D(BinaryPredicate1D):
+    def __init__(self, predicate):
+        BinaryPredicate1D.__init__(self)
+        self._predicate = predicate
+
+    def __call__(self, i1, i2):
+        return (not self._predicate(i1, i2))
+
+#
+
 def diffuse_from_stroke(stroke, curvemat=CurveMaterialF0D()):
     material = curvemat(Interface0DIterator(stroke))
     return material.diffuse
@@ -588,7 +620,7 @@ class SVGFillShaderCallback(ParameterEditorCallback):
         # Binary Predicates
         bpred = AndBP1D(
             MaterialBP1D(), 
-            NotBP1D(pyZDiscontinuityBP1D())
+            NotBP1D(pyZDiscontinuityBP1D()),
             )
         bpred = OrBP1D(bpred, AndBP1D(NotBP1D(bpred), AndBP1D(SameShapeIdBP1D(), MaterialBP1D())))
         # chain the edges
