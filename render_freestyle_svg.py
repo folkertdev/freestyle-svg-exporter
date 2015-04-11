@@ -57,11 +57,16 @@ from freestyle.predicates import (
         ExternalContourUP1D,
         NotUP1D,
         OrBP1D,
+        OrUP1D,
+        pyNatureUP1D,
         pyZBP1D,
+        pyZDiscontinuityBP1D,
         QuantitativeInvisibilityUP1D,
         SameShapeIdBP1D,
         TrueBP1D,
         TrueUP1D,
+        NotBP1D,
+
         )
 from freestyle.chainingiterators import ChainPredicateIterator
 from parameter_editor import get_dashed_pattern
@@ -382,9 +387,8 @@ class SVGPathShader(StrokeShader):
 class SVGFillBuilder:
     def __init__(self, filepath, height, name):
         self.filepath = filepath
-        self.h = height
         self._name = name
-        self.stroke_to_fill = partial(self.stroke_to_svg, height=self.h)
+        self.stroke_to_fill = partial(self.stroke_to_svg, height=height)
 
     @staticmethod
     def pathgen(vertices, path, height):
@@ -421,7 +425,7 @@ class SVGFillBuilder:
         path = '<path fill-rule="evenodd" stroke="none" ' \
                'fill-opacity="{}" fill="rgb({}, {}, {})"  d=" M '.format(alpha, *(int(255 * c) for c in color))
         vertices = (svert.point for svert in stroke)
-        return et.XML("".join(SVGFillShader.pathgen(vertices, path, height)))
+        return et.XML("".join(SVGFillBuilder.pathgen(vertices, path, height)))
 
     def create_fill_elements(self, strokes):
         merged_strokes = self.get_merged_strokes(strokes)
@@ -497,7 +501,6 @@ class MaterialBP1D(BinaryPredicate1D):
         BinaryPredicate1D.__init__(self)
 
     def __call__(self, i1, i2):
-        # fe = fedge_from_stroke(next(i1))
         materials1 = {diffuse_from_fedge(fe).to_tuple() for fe in (i1.first_fedge, i1.last_fedge)}
         materials2 = {diffuse_from_fedge(fe).to_tuple() for fe in (i2.first_fedge, i2.last_fedge)}
         # not sure whether this can happen, but checking for it anyway
@@ -519,6 +522,19 @@ class StrokeCollector(StrokeShader):
 
     def shade(self, stroke):
         self.strokes.append(stroke)
+
+def diffuse_from_fedge(fe):
+    if fe is None:
+        return None
+    if fe.is_smooth:
+        return fe.material.diffuse
+    else:
+        right, left = fe.material_right, fe.material_left
+        return (right if (right.priority > left.priority) else left).diffuse
+
+def diffuse_from_stroke(stroke, curvemat=CurveMaterialF0D()):
+    material = curvemat(Interface0DIterator(stroke))
+    return material.diffuse
 
 # - Callbacks - #
 class ParameterEditorCallback(object):
