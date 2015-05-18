@@ -42,12 +42,13 @@ from freestyle.types import (
         Interface0DIterator,
         Operators,
         Nature,
-        BinaryPredicate1D,
         )
 from freestyle.utils import (
     getCurrentScene,
-    bounding_box,
-    #inside_bounding_box,
+    BoundingBox,
+    is_poly_clockwise,
+    StrokeCollector,
+    material_from_fedge
     )
 from freestyle.functions import GetShapeF1D, CurveMaterialF0D
 from freestyle.predicates import (
@@ -55,6 +56,8 @@ from freestyle.predicates import (
         AndUP1D,
         ContourUP1D,
         ExternalContourUP1D,
+        MaterialBP1D,
+        NotBP1D,
         NotUP1D,
         OrBP1D,
         OrUP1D,
@@ -65,8 +68,6 @@ from freestyle.predicates import (
         SameShapeIdBP1D,
         TrueBP1D,
         TrueUP1D,
-        NotBP1D,
-
         )
 from freestyle.chainingiterators import ChainPredicateIterator
 from parameter_editor import get_dashed_pattern
@@ -81,9 +82,17 @@ from collections import OrderedDict
 from functools import partial
 from mathutils import Vector
 
+try:
+    from _freestyle import context as render_context
+except ImportError:
+    class render_context:
+        is_preview = False 
+        is_animation = True
 
 # use utf-8 here to keep ElementTree happy, end result is utf-16
 svg_primitive = """<?xml version="1.0" encoding="ascii" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="{:d}" height="{:d}">
 </svg>"""
 
@@ -102,15 +111,6 @@ def find_xml_elem(obj, search, namespaces, *, all=False):
 
 find_svg_elem = partial(find_xml_elem, namespaces=namespaces)
 
-# function that should soon be in freestyle.utils
-# TODO: remove when it is
-def inside_bounding_box(box_a, box_b):
-    """
-    Returns True if a in b, False otherewise
-    """
-    return (box_a[0].x >= box_b[0].x and box_a[0].y >= box_b[0].y and 
-            box_a[1].x <= box_b[1].x and box_a[1].y <= box_b[1].y)
-
 
 def render_height(scene):
     return int(scene.render.resolution_y * scene.render.resolution_percentage / 100)
@@ -122,9 +122,18 @@ def render_width(scene):
 
 # stores the state of the render, used to differ between animation and single frame renders.
 class RenderState:
+
     # Note that this flag is set to False only after the first frame
     # has been written to file.
     is_preview = True
+
+    @property
+    def render_is_animation(self):
+        return render_context.is_animation
+
+    @property
+    def render_is_preview(self):
+        return render_context.is_preview
 
 
 @persistent
@@ -138,6 +147,7 @@ def render_write(scene):
 
 
 def is_preview_render(scene):
+    # print("is_preview_render: ", RenderState.is_preview, RenderState.preview)
     return RenderState.is_preview or scene.svg_export.mode == 'FRAME'
 
 
@@ -226,6 +236,8 @@ def svg_export_header(scene):
     # write the header only for the first frame when animation is being rendered
     if not is_preview_render(scene) and scene.frame_current != scene.frame_start:
         return
+    #if freestyle_context.is_animation and scene.frame_current != scene.frame_start:
+    #    return
 
     # this may fail still. The error is printed to the console.
     with open(create_path(scene), "w") as f:
@@ -239,6 +251,7 @@ def svg_export_animation(scene):
     svg = scene.svg_export
 
     if render.use_freestyle and svg.use_svg_export and not is_preview_render(scene):
+        #if render.use_freestyle and svg.use_svg_export and freestyle_context.is_animation:
         write_animation(create_path(scene), scene.frame_start, render.fps)
 
 
@@ -364,10 +377,12 @@ class SVGPathShader(StrokeShader):
         id = "frame_{:04n}".format(self.frame_current)
 
         stroke_group = et.XML("<g/>")
-        stroke_group.attrib = {'xmlns:inkscape': namespaces["inkscape"],
-                               'inkscape:groupmode': 'layer',
-                               'id': 'strokes',
-                               'inkscape:label': 'strokes'}
+        stroke_group.attrib = {
+            'xmlns:inkscape': namespaces["inkscape"],
+            'inkscape:groupmode': 'layer',
+            'id': 'strokes',
+            'inkscape:label': 'strokes'
+            }
         # nest the structure
         stroke_group.extend(self.elements)
         if scene.svg_export.mode == 'ANIMATION':
@@ -396,7 +411,7 @@ class SVGFillBuilder:
         for point in vertices:
             x, y = point
             yield '{:.3f}, {:.3f} '.format(x, height - y)
-        yield 'z" />'  # closes the path; connects the current to the first point
+        yield ' z" />'  # closes the path; connects the current to the first point
 
     @staticmethod
     def get_merged_strokes(strokes):
@@ -410,50 +425,50 @@ class SVGFillBuilder:
                 if diffuse_from_stroke(stroke) != diffuse_from_stroke(stroke):
                     continue
                 # only merge when the 'hole' is inside the base
-                if stroke_inside_stroke(stroke, base):
+                elif stroke_inside_stroke(stroke, base):
                     merged_strokes[base].append(stroke)
                     break
             else:
-                # if no merge is possible, add the stroke to the merged strokes
                 merged_strokes.update({stroke:  []})
         return merged_strokes
 
-    @staticmethod
-    def stroke_to_svg(stroke, height):
-        *color, alpha = diffuse_from_stroke(stroke)
-        path = '<path fill-rule="evenodd" stroke="none" ' \
-               'fill-opacity="{}" fill="rgb({}, {}, {})"  d=" M '.format(alpha, *(int(255 * c) for c in color))
+    def stroke_to_svg(self, stroke, height, parameters=None):
+        if parameters is None:
+            *color, alpha = diffuse_from_stroke(stroke)
+            color = tuple(int(255 * c) for c in color)
+            parameters = {
+                'fill_rule': 'evenodd',
+                'stroke': 'none',
+                'fill-opacity': alpha,
+                'fill': 'rgb' + repr(color),
+            }
+        param_str = " ".join('{}="{}"'.format(k, v) for k, v in parameters.items())
+        path = '<path {} d=" M '.format(param_str)
         vertices = (svert.point for svert in stroke)
-        return et.XML("".join(SVGFillBuilder.pathgen(vertices, path, height)))
+        s = "".join(self.pathgen(vertices, path, height))
+        result = et.XML(s)
+        return result
 
     def create_fill_elements(self, strokes):
+        """Creates ElementTree objects by merging stroke objects together and turning them into SVG paths."""
         merged_strokes = self.get_merged_strokes(strokes)
-        elems = []
         for k, v in merged_strokes.items():
-            # convert the base object to XML
             base = self.stroke_to_fill(k)
-            # merge all d elements of child-strokes
-            points = " ".join(self.stroke_to_fill(stroke).get('d') for stroke in v)
-            # extend the base's vertices with the child's
-            base.set('d', base.get('d') + points)
-            elems.append(base)
-        return elems
+            fills = (self.stroke_to_fill(stroke).get("d") for stroke in v)
+            merged_points = " ".join(fills)
+            base.attrib['d'] += merged_points
+            yield base 
 
     def write(self, strokes):
         """Write SVG data tree to file """
-        # initialize SVG
+
         tree = et.parse(self.filepath)
         root = tree.getroot()
         scene = bpy.context.scene
         lineset_group = find_svg_elem(tree, ".//svg:g[@id='{}']".format(self._name))
-        fill_elements = self.create_fill_elements(strokes)
-
-        if scene.svg_export.mode == 'ANIMATION':
-            # add the fills to the <g> of the current frame
-            frame_group = find_svg_elem(lineset_group, ".//svg:g[@id='frame_{:04n}']".format(scene.frame_current))
-            if frame_group is None:
-                # something has gone very wrong
-                raise RuntimeError("SVGFillShader: frame_group is None")
+        if lineset_group is None:
+            print("searched for {}, but could not find a <g> with that id".format(self._name))
+            return
 
         # <g> for the fills of the current frame
         fill_group = et.XML('<g/>')
@@ -464,8 +479,11 @@ class SVGFillBuilder:
             'id': 'fills'
            }
 
-        fill_group.extend(reversed(fill_elements))
+        fill_elements = self.create_fill_elements(strokes)
+        fill_group.extend(reversed(tuple(fill_elements)))
         if scene.svg_export.mode == 'ANIMATION':
+            # add the fills to the <g> of the current frame
+            frame_group = find_svg_elem(lineset_group, ".//svg:g[@id='frame_{:04n}']".format(scene.frame_current))
             frame_group.insert(0, fill_group)
         else:
             lineset_group.insert(0, fill_group)
@@ -474,95 +492,12 @@ class SVGFillBuilder:
         indent_xml(root)
         tree.write(self.filepath, encoding='ascii', xml_declaration=True)
 
-# utility stuff that should be moved to other files
 
 def stroke_inside_stroke(a, b):
-    box_a = bounding_box(a)
-    box_b = bounding_box(b)
-    return inside_bounding_box(box_a, box_b)
+    box_a = BoundingBox.from_sequence(svert.point for svert in a)
+    box_b = BoundingBox.from_sequence(svert.point for svert in b)
+    return box_a.inside(box_b)
 
-def get_strokes():
-    return tuple(map(Operators().get_stroke_from_index, range(Operators().get_strokes_size())))
-
-
-def is_poly_clockwise(stroke) -> bool:
-    from freestyle.utils import pairwise 
-
-    v = sum((v2.point.x - v1.point.x) * (v1.point.y + v2.point.y) for v1, v2 in pairwise(stroke))
-    v1, *_, v2 = stroke 
-    if (v1.point - v2.point).length > 1e-3:
-        v += (v2.point.x - v1.point.x) * (v1.point.y + v2.point.y)
-    return v > 0
-
-
-class MaterialBP1D(BinaryPredicate1D):
-    def __init__(self, *predicates):
-        BinaryPredicate1D.__init__(self)
-
-    def __call__(self, i1, i2):
-        materials1 = {diffuse_from_fedge(fe).to_tuple() for fe in (i1.first_fedge, i1.last_fedge)}
-        materials2 = {diffuse_from_fedge(fe).to_tuple() for fe in (i2.first_fedge, i2.last_fedge)}
-        # not sure whether this can happen, but checking for it anyway
-        if len(materials1) > 1 or len(materials2) > 1:
-            return False 
-        return materials1 == materials2 
-
-def get_object_name(stroke):
-    fedge = fedge_from_stroke(stroke)
-    if fedge is None:
-        return None 
-    return fedge.viewedge.viewshape.name 
-
-class StrokeCollector(StrokeShader):
-    "Collects and Stores stroke objects"
-    def __init__(self):
-        StrokeShader.__init__(self)
-        self.strokes = []
-
-    def shade(self, stroke):
-        self.strokes.append(stroke)
-
-def diffuse_from_fedge(fe):
-    if fe is None:
-        return None
-    if fe.is_smooth:
-        return fe.material.diffuse
-    else:
-        right, left = fe.material_right, fe.material_left
-        return (right if (right.priority > left.priority) else left).diffuse
-
-# Binary Boolean operations still have some problems in the master version
-class AndBP1D(BinaryPredicate1D):
-    def __init__(self, *predicates):
-        BinaryPredicate1D.__init__(self)
-        self._predicates = predicates
-        if len(predicates) < 1:
-            raise ValueError("Expected two or more BinaryPredicate1D, got ", len(predicates))
-
-    def __call__(self, i1, i2):
-        return all(pred(i1, i2) for pred in self._predicates)
-
-
-class OrBP1D(BinaryPredicate1D):
-    def __init__(self, *predicates):
-        BinaryPredicate1D.__init__(self)
-        self._predicates = predicates
-        if len(predicates) < 1:
-            raise ValueError("Expected two or more BinaryPredicate1D, got ", len(predicates))
-
-    def __call__(self, i1, i2):
-        return any(pred(i1, i2) for pred in self._predicates)
-
-
-class NotBP1D(BinaryPredicate1D):
-    def __init__(self, predicate):
-        BinaryPredicate1D.__init__(self)
-        self._predicate = predicate
-
-    def __call__(self, i1, i2):
-        return (not self._predicate(i1, i2))
-
-#
 
 def diffuse_from_stroke(stroke, curvemat=CurveMaterialF0D()):
     material = curvemat(Interface0DIterator(stroke))
@@ -580,12 +515,25 @@ class ParameterEditorCallback(object):
     def lineset_post(self, scene, layer, lineset):
         raise NotImplementedError()
 
+    @classmethod
+    def evaluate(cls, scene):
+        'Evaluates whether these callbacks should run'
+        return (
+            scene.render.use_freestyle 
+            and scene.svg_export.use_svg_export 
+            # and not render_context.is_preview
+            )
+
 
 class SVGPathShaderCallback(ParameterEditorCallback):
     @classmethod
     def modifier_post(cls, scene, layer, lineset):
-        if not (scene.render.use_freestyle and scene.svg_export.use_svg_export):
+        # print("modifier_post", freestyle_context.is_preview, freestyle_context.is_render, freestyle_context.is_animation)
+        if not cls.evaluate(scene):
             return []
+
+        #print('is animation: ', RenderState().render_is_animation)
+        #print('is preview:   ', RenderState().render_is_preview)
 
         split = scene.svg_export.split_at_invisible
         cls.shader = SVGPathShader.from_lineset(
@@ -595,9 +543,9 @@ class SVGPathShaderCallback(ParameterEditorCallback):
 
     @classmethod
     def lineset_post(cls, scene, *args):
-        if not (scene.render.use_freestyle and scene.svg_export.use_svg_export):
+        if not cls.evaluate(scene):
             return
-
+        # print("pre-write, the context: ", freestyle_context.flag)
         cls.shader.write()
 
 
@@ -635,6 +583,7 @@ class SVGFillShaderCallback(ParameterEditorCallback):
         for stroke in collector.strokes:
             for svert in stroke:
                 svert.attribute.visible = False
+
 
 
 def indent_xml(elem, level=0, indentsize=4):
