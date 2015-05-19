@@ -37,6 +37,11 @@ import os
 
 import xml.etree.cElementTree as et
 
+from bpy.app.handlers import persistent
+from collections import OrderedDict
+from functools import partial
+from mathutils import Vector
+
 from freestyle.types import (
         StrokeShader,
         Interface0DIterator,
@@ -80,17 +85,7 @@ from bpy.props import (
         EnumProperty,
         PointerProperty,
         )
-from bpy.app.handlers import persistent
-from collections import OrderedDict
-from functools import partial
-from mathutils import Vector
 
-try:
-    from _freestyle import context as render_context
-except ImportError:
-    class render_context:
-        is_preview = False 
-        is_animation = True
 
 # use utf-8 here to keep ElementTree happy, end result is utf-16
 svg_primitive = """<?xml version="1.0" encoding="ascii" standalone="no"?>
@@ -104,7 +99,10 @@ svg_primitive = """<?xml version="1.0" encoding="ascii" standalone="no"?>
 namespaces = {
     "inkscape": "http://www.inkscape.org/namespaces/inkscape",
     "svg": "http://www.w3.org/2000/svg",
+    "sodipodi": "http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd",
+    "": "http://www.w3.org/2000/svg",
     }
+
 
 # wrap XMLElem.find, so the namespaces don't need to be given as an argument
 def find_xml_elem(obj, search, namespaces, *, all=False):
@@ -130,14 +128,6 @@ class RenderState:
     # has been written to file.
     is_preview = True
 
-    @property
-    def render_is_animation(self):
-        return render_context.is_animation
-
-    @property
-    def render_is_preview(self):
-        return render_context.is_preview
-
 
 @persistent
 def render_init(scene):
@@ -150,7 +140,6 @@ def render_write(scene):
 
 
 def is_preview_render(scene):
-    # print("is_preview_render: ", RenderState.is_preview, RenderState.preview)
     return RenderState.is_preview or scene.svg_export.mode == 'FRAME'
 
 
@@ -239,8 +228,6 @@ def svg_export_header(scene):
     # write the header only for the first frame when animation is being rendered
     if not is_preview_render(scene) and scene.frame_current != scene.frame_start:
         return
-    #if freestyle_context.is_animation and scene.frame_current != scene.frame_start:
-    #    return
 
     # this may fail still. The error is printed to the console.
     with open(create_path(scene), "w") as f:
@@ -254,7 +241,6 @@ def svg_export_animation(scene):
     svg = scene.svg_export
 
     if render.use_freestyle and svg.use_svg_export and not is_preview_render(scene):
-        #if render.use_freestyle and svg.use_svg_export and freestyle_context.is_animation:
         write_animation(create_path(scene), scene.frame_start, render.fps)
 
 
@@ -331,6 +317,7 @@ class SVGPathShader(StrokeShader):
     @staticmethod
     def pathgen(stroke, path, height, split_at_invisible, f=lambda v: not v.attribute.visible):
         """Generator that creates SVG paths (as strings) from the current stroke """
+
         it = iter(stroke)
         # start first path
         yield path
@@ -524,19 +511,14 @@ class ParameterEditorCallback(object):
         return (
             scene.render.use_freestyle 
             and scene.svg_export.use_svg_export 
-            # and not render_context.is_preview
             )
 
 
 class SVGPathShaderCallback(ParameterEditorCallback):
     @classmethod
     def modifier_post(cls, scene, layer, lineset):
-        # print("modifier_post", freestyle_context.is_preview, freestyle_context.is_render, freestyle_context.is_animation)
         if not cls.evaluate(scene):
             return []
-
-        #print('is animation: ', RenderState().render_is_animation)
-        #print('is preview:   ', RenderState().render_is_preview)
 
         split = scene.svg_export.split_at_invisible
         cls.shader = SVGPathShader.from_lineset(
@@ -548,7 +530,6 @@ class SVGPathShaderCallback(ParameterEditorCallback):
     def lineset_post(cls, scene, *args):
         if not cls.evaluate(scene):
             return
-        # print("pre-write, the context: ", freestyle_context.flag)
         cls.shader.write()
 
 
@@ -561,10 +542,10 @@ class SVGFillShaderCallback(ParameterEditorCallback):
         # reset the stroke selection (but don't delete the already generated strokes)
         Operators.reset(delete_strokes=False)
         # Unary Predicates: visible and correct edge nature
-        BorderUP1D = lambda : pyNatureUP1D(Nature.BORDER)
         upred = AndUP1D(
             QuantitativeInvisibilityUP1D(0), 
-            OrUP1D(ExternalContourUP1D(), BorderUP1D()),
+            OrUP1D(ExternalContourUP1D(), 
+                   pyNatureUP1D(Nature.BORDER)),
             )
         # select the new edges
         Operators.select(upred)
@@ -579,7 +560,7 @@ class SVGFillShaderCallback(ParameterEditorCallback):
         # export SVG
         collector = StrokeCollector()
         Operators.create(TrueUP1D(), [collector])
-        # shader.write()
+
         builder = SVGFillBuilder(create_path(scene), render_height(scene), layer.name + '_' + lineset.name)
         builder.write(collector.strokes)
         # make strokes used for filling invisible
@@ -603,6 +584,12 @@ def indent_xml(elem, level=0, indentsize=4):
             elem.tail = i
     elif level and (not elem.tail or not elem.tail.strip()):
         elem.tail = i
+
+
+def register_namespaces(namespaces=namespaces):
+    for name, url in namespaces.items():
+        if name != 'svg': # creates invalid xml
+            et.register_namespace(name, url)
 
 
 classes = (
@@ -629,9 +616,7 @@ def register():
     parameter_editor.callbacks_lineset_post.append(SVGFillShaderCallback.lineset_post)
 
     # register namespaces
-    et.register_namespace("", "http://www.w3.org/2000/svg")
-    et.register_namespace("inkscape", "http://www.inkscape.org/namespaces/inkscape")
-    et.register_namespace("sodipodi", "http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd")
+    register_namespaces()
 
 
 def unregister():
