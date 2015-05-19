@@ -50,7 +50,10 @@ from freestyle.utils import (
     StrokeCollector,
     material_from_fedge
     )
-from freestyle.functions import GetShapeF1D, CurveMaterialF0D
+from freestyle.functions import (
+    GetShapeF1D, 
+    CurveMaterialF0D,
+    )
 from freestyle.predicates import (
         AndBP1D,
         AndUP1D,
