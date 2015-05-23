@@ -47,13 +47,15 @@ from freestyle.types import (
         Interface0DIterator,
         Operators,
         Nature,
+        StrokeVertex,
         )
 from freestyle.utils import (
     getCurrentScene,
     BoundingBox,
     is_poly_clockwise,
     StrokeCollector,
-    material_from_fedge
+    material_from_fedge,
+    get_object_name,
     )
 from freestyle.functions import (
     GetShapeF1D, 
@@ -314,10 +316,10 @@ class SVGPathShader(StrokeShader):
         # return instance
         return cls(name, style, filepath, res_y, split_at_invisible, frame_current)
 
+
     @staticmethod
     def pathgen(stroke, path, height, split_at_invisible, f=lambda v: not v.attribute.visible):
         """Generator that creates SVG paths (as strings) from the current stroke """
-
         it = iter(stroke)
         # start first path
         yield path
@@ -403,10 +405,32 @@ class SVGFillBuilder:
             yield '{:.3f}, {:.3f} '.format(x, height - y)
         yield ' z" />'  # closes the path; connects the current to the first point
 
+
     @staticmethod
     def get_merged_strokes(strokes):
+        def extend_stroke(stroke, vertices):
+            for vert in map(StrokeVertex, vertices):
+                stroke.insert_vertex(vert, stroke.stroke_vertices_end())
+            return stroke
+
+        def sorted_strokes(strokes, key=None):
+            from operator import itemgetter
+            camera = getCurrentScene().camera.location
+            result = []
+            for stroke in strokes:
+                name = get_object_name(stroke)
+                location = bpy.data.objects[name].location 
+                distance = (camera - location).length
+                result.append((stroke, distance, name)) 
+            sort = sorted(result, key=itemgetter(1))
+            for _, _, name in sort:
+                print(name)
+            return tuple(zip(*sort))[0]
+
         base_strokes = tuple(stroke for stroke in strokes if not is_poly_clockwise(stroke))
-        # order is important; use OrderedDict
+
+
+        base_strokes = sorted_strokes(base_strokes)
         merged_strokes = OrderedDict((s, list()) for s in base_strokes)
 
         for stroke in filter(is_poly_clockwise, strokes):
@@ -418,9 +442,27 @@ class SVGFillBuilder:
                 elif stroke_inside_stroke(stroke, base):
                     merged_strokes[base].append(stroke)
                     break
+                # if it isn't a hole, it is likely that there are two strokes belonging
+                # to the same object separated by another object. let's try to join them
+                elif (get_object_name(base) == get_object_name(stroke) and 
+                      diffuse_from_stroke(stroke) == diffuse_from_stroke(stroke)):
+                    base = extend_stroke(base, (sv for sv in stroke))
+                    break
             else:
+                # if all else fails, treat this stroke as a base stroke
+                print("create new base")
+                print(get_object_name(stroke))
                 merged_strokes.update({stroke:  []})
+        
+        def distance_to_camera(pair):
+            base, _ = pair 
+            median = sum((sv.point_3d for sv in base), Vector((0, 0, 0))) / len(stroke)
+            camera = getCurrentScene().camera.location 
+            return -(median - camera).length
+
+        return OrderedDict(sorted(merged_strokes.items(), key=distance_to_camera))
         return merged_strokes
+        
 
     def stroke_to_svg(self, stroke, height, parameters=None):
         if parameters is None:
