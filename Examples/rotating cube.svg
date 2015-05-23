@@ -1,0 +1,2082 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   height="315.37671"
+   version="1.1"
+   width="317.07019"
+   id="svg3648"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="rotating cube.svg">
+  <metadata
+     id="metadata4271">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs4269">
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath5519">
+      <rect
+         style="opacity:0;fill:#0000ff;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         id="rect5521"
+         width="318.21088"
+         height="318.21088"
+         x="292.14056"
+         y="152.77956" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath5523">
+      <rect
+         style="opacity:0;fill:#0000ff;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         id="rect5525"
+         width="318.21088"
+         height="318.21088"
+         x="292.14056"
+         y="152.77956" />
+    </clipPath>
+  </defs>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1025"
+     id="namedview4267"
+     showgrid="false"
+     inkscape:zoom="1.3041667"
+     inkscape:cx="364.75946"
+     inkscape:cy="176.32516"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g4244"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
+  <g
+     id="LineSet 2"
+     inkscape:label="LineSet 2"
+     clip-path="url(#clipPath5523)"
+     transform="translate(-293.28125,-152.77956)"
+     style="display:inline">
+    <g
+       id="frame_0001"
+       inkscape:label="frame_0001">
+      <g
+         id="strokes"
+         inkscape:groupmode="layer"
+         inkscape:label="strokes">
+        <path
+           d="m 324.323,383.313 9.077,-4.198 9.076,-4.197 9.076,-4.198 9.077,-4.197 9.076,-4.198 9.077,-4.197 9.076,-4.198 9.076,-4.197 9.077,-4.197 9.076,-4.198 9.077,-4.197 9.076,-4.198 9.077,-4.197 9.076,-4.198 5.473,-2.531"
+           stroke-linejoin="mitter"
+           id="path3653"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#6f6f6f;stroke-width:3;stroke-linecap:butt;stroke-opacity:1;stroke-dasharray:5, 5" />
+        <path
+           d="m 453.278,170.112 0.236,9.997 0.236,9.997 0.236,9.997 0.236,9.998 0.236,9.997 0.236,9.997 0.237,9.997 0.236,9.998 0.236,9.997 0.236,9.997 0.236,9.997 0.236,9.997 0.236,9.998 0.236,9.997 0.237,9.997 0.046,1.947 8.868,4.621 8.869,4.62 8.868,4.621 8.869,4.62 8.869,4.62 8.868,4.621 8.869,4.62 8.869,4.62 8.868,4.621 8.869,4.62 8.868,4.62 8.869,4.621 8.869,4.62 5.707,2.973"
+           stroke-linejoin="mitter"
+           id="path3655"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#6f6f6f;stroke-width:3;stroke-linecap:butt;stroke-opacity:1;stroke-dasharray:5, 5" />
+      </g>
+      <animate
+         attributeName="display"
+         begin="-2.000s"
+         dur="2.000s"
+         id="anim_LineSet 2_000001"
+         keyTimes="0.0;0.05;0.1;0.15;0.2;0.25;0.3;0.35;0.4;0.45;0.5;0.55;0.6;0.65;0.7;0.75;0.8;0.85;0.9;0.95;1"
+         repeatCount="indefinite"
+         values="none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;inline;none" />
+    </g>
+    <g
+       id="frame_0002"
+       inkscape:label="frame_0002">
+      <g
+         id="g3659"
+         inkscape:groupmode="layer"
+         inkscape:label="strokes">
+        <path
+           d="m 323.554,386.275 8.943,-4.474 8.943,-4.474 8.943,-4.474 8.943,-4.475 8.944,-4.474 8.943,-4.474 8.943,-4.474 8.943,-4.475 8.944,-4.474 8.943,-4.474 8.943,-4.474 8.943,-4.475 8.943,-4.474 8.944,-4.474 3.18,-1.591"
+           stroke-linejoin="mitter"
+           id="path3661"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#6f6f6f;stroke-width:3;stroke-linecap:butt;stroke-opacity:1;stroke-dasharray:5, 5" />
+        <path
+           d="m 447.988,170.15 0.26,9.997 0.26,9.996 0.26,9.997 0.26,9.997 0.26,9.996 0.26,9.997 0.26,9.997 0.26,9.996 0.26,9.997 0.26,9.996 0.26,9.997 0.26,9.997 0.26,9.996 0.26,9.997 0.26,9.997 0.051,1.945 9.021,4.315 9.021,4.316 9.021,4.315 9.02,4.316 9.021,4.315 9.021,4.316 9.021,4.315 9.021,4.316 9.021,4.315 9.021,4.316 9.021,4.315 9.02,4.316 9.021,4.316 8.243,3.943"
+           stroke-linejoin="mitter"
+           id="path3663"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#6f6f6f;stroke-width:3;stroke-linecap:butt;stroke-opacity:1;stroke-dasharray:5, 5" />
+      </g>
+      <animate
+         attributeName="display"
+         begin="-1.900s"
+         dur="2.000s"
+         id="anim_LineSet 2_000002"
+         keyTimes="0.0;0.05;0.1;0.15;0.2;0.25;0.3;0.35;0.4;0.45;0.5;0.55;0.6;0.65;0.7;0.75;0.8;0.85;0.9;0.95;1"
+         repeatCount="indefinite"
+         values="none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;inline;none" />
+    </g>
+    <g
+       id="frame_0003"
+       inkscape:label="frame_0003">
+      <g
+         id="g3667"
+         inkscape:groupmode="layer"
+         inkscape:label="strokes">
+        <path
+           d="m 322.638,395.286 8.448,-5.35 8.448,-5.351 8.448,-5.351 8.448,-5.35 8.448,-5.351 8.449,-5.35 8.448,-5.351 8.448,-5.351 8.448,-5.35 8.448,-5.351 8.448,-5.351 8.448,-5.35 8.448,-5.351 4.705,-2.979"
+           stroke-linejoin="mitter"
+           id="path3669"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#6f6f6f;stroke-width:3;stroke-linecap:butt;stroke-opacity:1;stroke-dasharray:5, 5" />
+        <path
+           d="m 432.122,170.757 0.332,9.994 0.332,9.995 0.332,9.994 0.331,9.995 0.332,9.994 0.332,9.995 0.332,9.994 0.332,9.995 0.331,9.994 0.332,9.995 0.332,9.994 0.332,9.995 0.331,9.994 0.332,9.995 0.332,9.994 0.069,2.075 9.385,3.452 9.385,3.453 9.385,3.452 9.385,3.452 9.386,3.453 9.385,3.452 9.385,3.453 9.385,3.452 9.385,3.453 9.385,3.452 9.385,3.452 9.385,3.453 9.386,3.452 9.385,3.453 6.297,2.316"
+           stroke-linejoin="mitter"
+           id="path3671"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#6f6f6f;stroke-width:3;stroke-linecap:butt;stroke-opacity:1;stroke-dasharray:5, 5" />
+      </g>
+      <animate
+         attributeName="display"
+         begin="-1.800s"
+         dur="2.000s"
+         id="anim_LineSet 2_000003"
+         keyTimes="0.0;0.05;0.1;0.15;0.2;0.25;0.3;0.35;0.4;0.45;0.5;0.55;0.6;0.65;0.7;0.75;0.8;0.85;0.9;0.95;1"
+         repeatCount="indefinite"
+         values="none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;inline;none" />
+    </g>
+    <g
+       id="frame_0004"
+       inkscape:label="frame_0004">
+      <g
+         id="g3675"
+         inkscape:groupmode="layer"
+         inkscape:label="strokes">
+        <path
+           d="m 325.731,409.825 7.237,-6.901 7.238,-6.9 7.237,-6.901 7.238,-6.901 7.237,-6.9 7.238,-6.901 7.237,-6.9 7.238,-6.901 7.238,-6.9 7.237,-6.901 7.238,-6.901 7.237,-6.9 1.261,-1.202"
+           stroke-linejoin="mitter"
+           id="path3677"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#6f6f6f;stroke-width:3;stroke-linecap:butt;stroke-opacity:1;stroke-dasharray:5, 5" />
+        <path
+           d="m 407.039,173.26 0.445,9.99 0.446,9.99 0.445,9.99 0.446,9.99 0.445,9.99 0.446,9.99 0.445,9.99 0.446,9.991 0.445,9.99 0.446,9.99 0.445,9.99 0.446,9.99 0.445,9.99 0.446,9.99 0.445,9.99 0.121,2.705 9.754,2.204 9.754,2.203 9.754,2.204 9.755,2.203 9.754,2.204 9.754,2.203 9.754,2.204 9.754,2.204 9.755,2.203 9.754,2.204 9.754,2.203 9.754,2.204 9.754,2.203 9.755,2.204 9.754,2.204 6.534,1.476"
+           stroke-linejoin="mitter"
+           id="path3679"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#6f6f6f;stroke-width:3;stroke-linecap:butt;stroke-opacity:1;stroke-dasharray:5, 5" />
+      </g>
+      <animate
+         attributeName="display"
+         begin="-1.700s"
+         dur="2.000s"
+         id="anim_LineSet 2_000004"
+         keyTimes="0.0;0.05;0.1;0.15;0.2;0.25;0.3;0.35;0.4;0.45;0.5;0.55;0.6;0.65;0.7;0.75;0.8;0.85;0.9;0.95;1"
+         repeatCount="indefinite"
+         values="none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;inline;none" />
+    </g>
+    <g
+       id="frame_0005"
+       inkscape:label="frame_0005">
+      <g
+         id="g3683"
+         inkscape:groupmode="layer"
+         inkscape:label="strokes">
+        <path
+           d="m 338.055,427.475 4.52,-8.921 4.519,-8.92 4.52,-8.921 4.519,-8.92 4.52,-8.92 4.519,-8.921 4.52,-8.92 4.519,-8.921 4.52,-8.92 4.519,-8.921 2.634,-5.197"
+           stroke-linejoin="mitter"
+           id="path3685"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#6f6f6f;stroke-width:3;stroke-linecap:butt;stroke-opacity:1;stroke-dasharray:5, 5" />
+        <path
+           d="m 376.892,179.096 0.583,9.983 0.583,9.983 0.583,9.983 0.583,9.983 0.583,9.983 0.583,9.983 0.583,9.983 0.583,9.983 0.583,9.983 0.583,9.983 0.583,9.983 0.583,9.983 0.583,9.983 0.583,9.983 0.583,9.983 0.247,4.232 9.969,0.781 9.97,0.78 9.969,0.781 9.97,0.781 9.969,0.781 9.97,0.781 9.969,0.78 9.97,0.781 9.969,0.781 9.969,0.781 9.97,0.781 9.969,0.78 9.97,0.781 9.969,0.781 9.97,0.781 9.969,0.78 4.665,0.366"
+           stroke-linejoin="mitter"
+           id="path3687"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#6f6f6f;stroke-width:3;stroke-linecap:butt;stroke-opacity:1;stroke-dasharray:5, 5" />
+      </g>
+      <animate
+         attributeName="display"
+         begin="-1.600s"
+         dur="2.000s"
+         id="anim_LineSet 2_000005"
+         keyTimes="0.0;0.05;0.1;0.15;0.2;0.25;0.3;0.35;0.4;0.45;0.5;0.55;0.6;0.65;0.7;0.75;0.8;0.85;0.9;0.95;1"
+         repeatCount="indefinite"
+         values="none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;inline;none" />
+    </g>
+    <g
+       id="frame_0006"
+       inkscape:label="frame_0006">
+      <g
+         id="g3691"
+         inkscape:groupmode="layer"
+         inkscape:label="strokes">
+        <path
+           d="m 361.537,443.811 -0.204,-9.998 -0.205,-9.998 -0.204,-9.998 -0.205,-9.998 -0.204,-9.997 -0.205,-9.998 -0.204,-9.998 -0.205,-9.998 -0.204,-9.998 -0.184,-8.989"
+           stroke-linejoin="mitter"
+           id="path3693"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#6f6f6f;stroke-width:3;stroke-linecap:butt;stroke-opacity:1;stroke-dasharray:5, 5" />
+        <path
+           d="m 348.307,188.518 0.715,9.974 0.715,9.975 0.715,9.974 0.715,9.974 0.715,9.975 0.715,9.974 0.715,9.975 0.715,9.974 0.715,9.975 0.715,9.974 0.715,9.974 0.715,9.975 0.715,9.974 0.715,9.975 0.715,9.974 0.481,6.707 9.978,-0.661 9.978,-0.661 9.978,-0.661 9.978,-0.661 9.978,-0.661 9.979,-0.661 9.978,-0.661 9.978,-0.661 9.978,-0.661 9.978,-0.661 9.978,-0.661 9.978,-0.661 9.978,-0.661 9.979,-0.661 9.978,-0.661 9.978,-0.661 6.678,-0.442"
+           stroke-linejoin="mitter"
+           id="path3695"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#6f6f6f;stroke-width:3;stroke-linecap:butt;stroke-opacity:1;stroke-dasharray:5, 5" />
+        <path
+           d="m 527.376,179.211 -0.099,9.999 -0.1,10 -0.099,9.999 -0.099,10 -0.1,9.999 -0.099,10 -0.099,9.999 -0.099,10 -0.1,9.999 -0.099,10 -0.099,9.999 -0.1,10 -0.099,9.999 -0.099,10 -0.099,9.999 -0.046,4.62 2.921,9.564 2.922,9.564 2.921,9.563 2.921,9.564 2.922,9.564 2.921,9.564 2.922,9.563 2.921,9.564 2.921,9.564 2.858,9.355"
+           stroke-linejoin="mitter"
+           id="path3697"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#6f6f6f;stroke-width:3;stroke-linecap:butt;stroke-opacity:1;stroke-dasharray:5, 5" />
+      </g>
+      <animate
+         attributeName="display"
+         begin="-1.500s"
+         dur="2.000s"
+         id="anim_LineSet 2_000006"
+         keyTimes="0.0;0.05;0.1;0.15;0.2;0.25;0.3;0.35;0.4;0.45;0.5;0.55;0.6;0.65;0.7;0.75;0.8;0.85;0.9;0.95;1"
+         repeatCount="indefinite"
+         values="none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;inline;none" />
+    </g>
+    <g
+       id="frame_0007"
+       inkscape:label="frame_0007">
+      <g
+         id="g3701"
+         inkscape:groupmode="layer"
+         inkscape:label="strokes">
+        <path
+           d="m 340.238,358.955 9.795,-2.015 9.795,-2.015 9.795,-2.015 9.795,-2.015 9.795,-2.015 9.795,-2.015 9.794,-2.015 9.795,-2.015 9.795,-2.015 9.795,-2.016 9.795,-2.015 9.795,-2.015 9.795,-2.015 9.795,-2.015 9.794,-2.015 9.795,-2.015 2.234,-0.459"
+           stroke-linejoin="mitter"
+           id="path3703"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#6f6f6f;stroke-width:3;stroke-linecap:butt;stroke-opacity:1;stroke-dasharray:5, 5" />
+        <path
+           d="m 498.72,173.314 0.03,10 0.031,10 0.031,10 0.031,10 0.03,10 0.031,10 0.031,10 0.031,10 0.03,9.999 0.031,10 0.031,10 0.031,10 0.03,10 0.031,10 0.031,10 0.009,2.942 6.436,7.653 6.436,7.654 6.437,7.653 6.436,7.653 6.436,7.654 6.436,7.653 6.437,7.654 6.436,7.653 6.436,7.654 6.436,7.653 6.436,7.653 1.063,1.263"
+           stroke-linejoin="mitter"
+           id="path3705"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#6f6f6f;stroke-width:3;stroke-linecap:butt;stroke-opacity:1;stroke-dasharray:5, 5" />
+      </g>
+      <animate
+         attributeName="display"
+         begin="-1.400s"
+         dur="2.000s"
+         id="anim_LineSet 2_000007"
+         keyTimes="0.0;0.05;0.1;0.15;0.2;0.25;0.3;0.35;0.4;0.45;0.5;0.55;0.6;0.65;0.7;0.75;0.8;0.85;0.9;0.95;1"
+         repeatCount="indefinite"
+         values="none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;inline;none" />
+    </g>
+    <g
+       id="frame_0008"
+       inkscape:label="frame_0008">
+      <g
+         id="g3709"
+         inkscape:groupmode="layer"
+         inkscape:label="strokes">
+        <path
+           d="m 329.599,371.798 9.488,-3.157 9.489,-3.157 9.489,-3.157 9.488,-3.157 9.489,-3.157 9.488,-3.158 9.489,-3.157 9.488,-3.157 9.489,-3.157 9.488,-3.157 9.489,-3.157 9.488,-3.157 9.489,-3.157 9.489,-3.157 9.488,-3.158 4.492,-1.494"
+           stroke-linejoin="mitter"
+           id="path3711"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#6f6f6f;stroke-width:3;stroke-linecap:butt;stroke-opacity:1;stroke-dasharray:5, 5" />
+        <path
+           d="m 474.269,170.778 0.141,9.999 0.142,9.999 0.141,9.999 0.141,9.999 0.141,9.999 0.142,9.999 0.141,9.999 0.141,9.999 0.142,9.999 0.141,9.999 0.141,9.999 0.142,9.999 0.141,9.999 0.141,9.999 0.141,9.999 0.031,2.184 8.052,5.93 8.052,5.93 8.052,5.93 8.052,5.93 8.052,5.931 8.052,5.93 8.052,5.93 8.051,5.93 8.052,5.93 8.052,5.931 8.052,5.93 8.052,5.93 4.098,3.018"
+           stroke-linejoin="mitter"
+           id="path3713"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#6f6f6f;stroke-width:3;stroke-linecap:butt;stroke-opacity:1;stroke-dasharray:5, 5" />
+      </g>
+      <animate
+         attributeName="display"
+         begin="-1.300s"
+         dur="2.000s"
+         id="anim_LineSet 2_000008"
+         keyTimes="0.0;0.05;0.1;0.15;0.2;0.25;0.3;0.35;0.4;0.45;0.5;0.55;0.6;0.65;0.7;0.75;0.8;0.85;0.9;0.95;1"
+         repeatCount="indefinite"
+         values="none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;inline;none" />
+    </g>
+    <g
+       id="frame_0009"
+       inkscape:label="frame_0009">
+      <g
+         id="g3717"
+         inkscape:groupmode="layer"
+         inkscape:label="strokes">
+        <path
+           d="m 325.317,380.379 9.197,-3.928 9.196,-3.928 9.196,-3.927 9.197,-3.928 9.196,-3.928 9.196,-3.928 9.197,-3.928 9.196,-3.927 9.196,-3.928 9.197,-3.928 9.196,-3.928 9.196,-3.927 9.197,-3.928 9.196,-3.928 7.717,-3.296"
+           stroke-linejoin="mitter"
+           id="path3719"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#6f6f6f;stroke-width:3;stroke-linecap:butt;stroke-opacity:1;stroke-dasharray:5, 5" />
+        <path
+           d="m 458.557,170.155 0.213,9.998 0.212,9.998 0.212,9.998 0.212,9.997 0.213,9.998 0.212,9.998 0.212,9.998 0.212,9.997 0.213,9.998 0.212,9.998 0.212,9.998 0.213,9.997 0.212,9.998 0.212,9.998 0.212,9.998 0.042,1.972 8.698,4.934 8.698,4.935 8.698,4.934 8.698,4.934 8.698,4.934 8.698,4.935 8.698,4.934 8.697,4.934 8.698,4.934 8.698,4.935 8.698,4.934 8.698,4.934 8.698,4.934 3.187,1.808"
+           stroke-linejoin="mitter"
+           id="path3721"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#6f6f6f;stroke-width:3;stroke-linecap:butt;stroke-opacity:1;stroke-dasharray:5, 5" />
+      </g>
+      <animate
+         attributeName="display"
+         begin="-1.200s"
+         dur="2.000s"
+         id="anim_LineSet 2_000009"
+         keyTimes="0.0;0.05;0.1;0.15;0.2;0.25;0.3;0.35;0.4;0.45;0.5;0.55;0.6;0.65;0.7;0.75;0.8;0.85;0.9;0.95;1"
+         repeatCount="indefinite"
+         values="none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;inline;none" />
+    </g>
+    <g
+       id="frame_0010"
+       inkscape:label="frame_0010">
+      <g
+         id="g3725"
+         inkscape:groupmode="layer"
+         inkscape:label="strokes">
+        <path
+           d="m 324.323,383.313 9.077,-4.198 9.076,-4.197 9.076,-4.198 9.077,-4.197 9.076,-4.198 9.077,-4.197 9.076,-4.198 9.076,-4.197 9.077,-4.197 9.076,-4.198 9.077,-4.197 9.076,-4.198 9.077,-4.197 9.076,-4.198 5.473,-2.531"
+           stroke-linejoin="mitter"
+           id="path3727"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#6f6f6f;stroke-width:3;stroke-linecap:butt;stroke-opacity:1;stroke-dasharray:5, 5" />
+        <path
+           d="m 453.278,170.112 0.236,9.997 0.236,9.997 0.236,9.997 0.236,9.998 0.236,9.997 0.236,9.997 0.237,9.997 0.236,9.998 0.236,9.997 0.236,9.997 0.236,9.997 0.236,9.997 0.236,9.998 0.236,9.997 0.237,9.997 0.046,1.947 8.868,4.621 8.869,4.62 8.868,4.621 8.869,4.62 8.869,4.62 8.868,4.621 8.869,4.62 8.869,4.62 8.868,4.621 8.869,4.62 8.868,4.62 8.869,4.621 8.869,4.62 5.707,2.973"
+           stroke-linejoin="mitter"
+           id="path3729"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#6f6f6f;stroke-width:3;stroke-linecap:butt;stroke-opacity:1;stroke-dasharray:5, 5" />
+      </g>
+      <animate
+         attributeName="display"
+         begin="-1.100s"
+         dur="2.000s"
+         id="anim_LineSet 2_000010"
+         keyTimes="0.0;0.05;0.1;0.15;0.2;0.25;0.3;0.35;0.4;0.45;0.5;0.55;0.6;0.65;0.7;0.75;0.8;0.85;0.9;0.95;1"
+         repeatCount="indefinite"
+         values="none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;inline;none" />
+    </g>
+    <g
+       id="frame_0011"
+       inkscape:label="frame_0011">
+      <g
+         id="g3733"
+         inkscape:groupmode="layer"
+         inkscape:label="strokes">
+        <path
+           d="m 322.28,379.444 9.088,-4.172 9.088,-4.172 9.088,-4.172 9.089,-4.172 9.088,-4.171 9.088,-4.172 9.088,-4.172 9.088,-4.172 9.089,-4.172 9.088,-4.172 9.088,-4.172 9.088,-4.171 9.088,-4.172 9.089,-4.172 5.432,-2.494"
+           stroke-linejoin="mitter"
+           id="path3735"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#6f6f6f;stroke-width:3;stroke-linecap:butt;stroke-opacity:1;stroke-dasharray:5, 5" />
+        <path
+           d="m 455.28,168.101 -0.022,10 -0.022,10 -0.023,10 -0.022,10 -0.022,10 -0.022,10 -0.022,10 -0.022,10 -0.022,10 -0.022,10 -0.023,10 -0.022,10 -0.022,10 -0.022,10 -0.023,10.443 8.712,4.91 8.712,4.909 8.712,4.909 8.712,4.91 8.712,4.909 8.712,4.909 8.712,4.91 8.712,4.909 8.712,4.909 8.712,4.91 8.712,4.909 8.712,4.909 8.712,4.91 7.191,4.052"
+           stroke-linejoin="mitter"
+           id="path3737"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#6f6f6f;stroke-width:3;stroke-linecap:butt;stroke-opacity:1;stroke-dasharray:5, 5" />
+      </g>
+      <animate
+         attributeName="display"
+         begin="-1.000s"
+         dur="2.000s"
+         id="anim_LineSet 2_000011"
+         keyTimes="0.0;0.05;0.1;0.15;0.2;0.25;0.3;0.35;0.4;0.45;0.5;0.55;0.6;0.65;0.7;0.75;0.8;0.85;0.9;0.95;1"
+         repeatCount="indefinite"
+         values="none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;inline;none" />
+    </g>
+    <g
+       id="frame_0012"
+       inkscape:label="frame_0012">
+      <g
+         id="g3741"
+         inkscape:groupmode="layer"
+         inkscape:label="strokes">
+        <path
+           d="m 316.497,367.563 9.123,-4.094 9.124,-4.094 9.123,-4.094 9.124,-4.095 9.123,-4.094 9.124,-4.094 9.123,-4.095 9.123,-4.094 9.124,-4.094 9.123,-4.094 9.124,-4.095 9.123,-4.094 9.124,-4.094 9.123,-4.094 5.362,-2.407"
+           stroke-linejoin="mitter"
+           id="path3743"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#6f6f6f;stroke-width:3;stroke-linecap:butt;stroke-opacity:1;stroke-dasharray:5, 5" />
+        <path
+           d="m 461.805,162.764 -0.839,9.965 -0.84,9.965 -0.839,9.964 -0.839,9.965 -0.839,9.965 -0.839,9.965 -0.84,9.964 -0.839,9.965 -0.839,9.965 -0.839,9.964 -0.839,9.965 -0.84,9.965 -0.839,9.965 -0.839,9.964 -0.469,5.567 8.219,5.697 8.219,5.696 8.219,5.697 8.219,5.696 8.219,5.697 8.219,5.696 8.218,5.697 8.219,5.696 8.219,5.697 8.219,5.696 8.219,5.697 8.219,5.696 8.219,5.697 8.219,5.696 2.97,2.059"
+           stroke-linejoin="mitter"
+           id="path3745"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#6f6f6f;stroke-width:3;stroke-linecap:butt;stroke-opacity:1;stroke-dasharray:5, 5" />
+      </g>
+      <animate
+         attributeName="display"
+         begin="-0.900s"
+         dur="2.000s"
+         id="anim_LineSet 2_000012"
+         keyTimes="0.0;0.05;0.1;0.15;0.2;0.25;0.3;0.35;0.4;0.45;0.5;0.55;0.6;0.65;0.7;0.75;0.8;0.85;0.9;0.95;1"
+         repeatCount="indefinite"
+         values="none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;inline;none" />
+    </g>
+    <g
+       id="frame_0013"
+       inkscape:label="frame_0013">
+      <g
+         id="g3749"
+         inkscape:groupmode="layer"
+         inkscape:label="strokes">
+        <path
+           d="m 308.362,347.687 9.179,-3.968 9.179,-3.967 9.18,-3.968 9.179,-3.967 9.179,-3.968 9.179,-3.967 9.18,-3.968 9.179,-3.967 9.179,-3.968 9.179,-3.967 9.18,-3.968 9.179,-3.968 9.179,-3.967 9.179,-3.968 5.418,-2.341"
+           stroke-linejoin="mitter"
+           id="path3751"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#6f6f6f;stroke-width:3;stroke-linecap:butt;stroke-opacity:1;stroke-dasharray:5, 5" />
+        <path
+           d="m 473.905,156.556 -2.309,9.73 -2.309,9.73 -2.308,9.73 -2.309,9.73 -2.309,9.73 -2.308,9.73 -2.309,9.729 -2.309,9.73 -2.308,9.73 -2.309,9.73 -2.309,9.73 -2.308,9.73 -2.309,9.73 -1.603,6.755 7.378,6.75 7.378,6.75 7.378,6.75 7.378,6.75 7.378,6.751 7.378,6.75 7.378,6.75 7.378,6.75 7.378,6.751 7.378,6.75 7.378,6.75 7.378,6.75 7.378,6.751 7.378,6.75 7.378,6.75 1.158,1.059"
+           stroke-linejoin="mitter"
+           id="path3753"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#6f6f6f;stroke-width:3;stroke-linecap:butt;stroke-opacity:1;stroke-dasharray:5, 5" />
+      </g>
+      <animate
+         attributeName="display"
+         begin="-0.800s"
+         dur="2.000s"
+         id="anim_LineSet 2_000013"
+         keyTimes="0.0;0.05;0.1;0.15;0.2;0.25;0.3;0.35;0.4;0.45;0.5;0.55;0.6;0.65;0.7;0.75;0.8;0.85;0.9;0.95;1"
+         repeatCount="indefinite"
+         values="none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;inline;none" />
+    </g>
+    <g
+       id="frame_0014"
+       inkscape:label="frame_0014">
+      <g
+         id="g3757"
+         inkscape:groupmode="layer"
+         inkscape:label="strokes">
+        <path
+           d="m 300.337,321.251 9.249,-3.804 9.248,-3.804 9.248,-3.804 9.248,-3.804 9.249,-3.804 9.248,-3.804 9.248,-3.804 9.248,-3.804 9.248,-3.804 9.249,-3.804 9.248,-3.804 9.248,-3.804 9.248,-3.804 9.248,-3.804 5.808,-2.389"
+           stroke-linejoin="mitter"
+           id="path3759"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#6f6f6f;stroke-width:3;stroke-linecap:butt;stroke-opacity:1;stroke-dasharray:5, 5" />
+        <path
+           d="m 492.098,153.527 -4.5,8.93 -4.5,8.93 -4.5,8.93 -4.5,8.931 -4.5,8.93 -4.5,8.93 -4.5,8.931 -4.5,8.93 -4.5,8.93 -4.5,8.93 -4.5,8.931 -4.5,8.93 -2.478,4.916 6.251,7.806 6.25,7.806 6.251,7.805 6.25,7.806 6.251,7.806 6.25,7.806 6.25,7.806 6.251,7.806 6.25,7.806 6.251,7.806 6.25,7.806 6.251,7.806 6.25,7.806 6.25,7.805 6.251,7.806 6.083,7.597"
+           stroke-linejoin="mitter"
+           id="path3761"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#6f6f6f;stroke-width:3;stroke-linecap:butt;stroke-opacity:1;stroke-dasharray:5, 5" />
+      </g>
+      <animate
+         attributeName="display"
+         begin="-0.700s"
+         dur="2.000s"
+         id="anim_LineSet 2_000014"
+         keyTimes="0.0;0.05;0.1;0.15;0.2;0.25;0.3;0.35;0.4;0.45;0.5;0.55;0.6;0.65;0.7;0.75;0.8;0.85;0.9;0.95;1"
+         repeatCount="indefinite"
+         values="none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;inline;none" />
+    </g>
+    <g
+       id="frame_0015"
+       inkscape:label="frame_0015">
+      <g
+         id="g3765"
+         inkscape:groupmode="layer"
+         inkscape:label="strokes">
+        <path
+           d="m 295.212,291.815 9.319,-3.628 9.318,-3.629 9.319,-3.628 9.318,-3.628 9.319,-3.629 9.318,-3.628 9.319,-3.628 9.319,-3.628 9.318,-3.629 9.319,-3.628 9.318,-3.628 9.319,-3.628 9.318,-3.629 9.319,-3.628 6.666,-2.595"
+           stroke-linejoin="mitter"
+           id="path3767"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#6f6f6f;stroke-width:3;stroke-linecap:butt;stroke-opacity:1;stroke-dasharray:5, 5" />
+        <path
+           d="m 514.973,157.649 -7.151,6.99 -7.151,6.99 -7.151,6.99 -7.152,6.99 -7.151,6.99 -7.151,6.99 -7.151,6.991 -7.151,6.99 -7.151,6.99 -7.151,6.99 -7.151,6.99 -3.973,3.884 4.949,8.689 4.95,8.689 4.949,8.689 4.95,8.69 4.949,8.689 4.95,8.689 4.949,8.689 4.95,8.69 4.949,8.689 4.95,8.689 4.949,8.689 4.949,8.689 4.95,8.69 4.949,8.689 4.95,8.689 4.949,8.689 2.49,4.371"
+           stroke-linejoin="mitter"
+           id="path3769"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#6f6f6f;stroke-width:3;stroke-linecap:butt;stroke-opacity:1;stroke-dasharray:5, 5" />
+      </g>
+      <animate
+         attributeName="display"
+         begin="-0.600s"
+         dur="2.000s"
+         id="anim_LineSet 2_000015"
+         keyTimes="0.0;0.05;0.1;0.15;0.2;0.25;0.3;0.35;0.4;0.45;0.5;0.55;0.6;0.65;0.7;0.75;0.8;0.85;0.9;0.95;1"
+         repeatCount="indefinite"
+         values="none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;inline;none" />
+    </g>
+    <g
+       id="frame_0016"
+       inkscape:label="frame_0016">
+      <g
+         id="g3773"
+         inkscape:groupmode="layer"
+         inkscape:label="strokes">
+        <path
+           d="m 493.385,367.376 -8.898,4.563 -8.899,4.562 -8.898,4.563 -8.899,4.562 -8.898,4.563 -8.898,4.563 -8.899,4.562 -8.898,4.563 -8.899,4.563 -8.898,4.562 -8.899,4.563 -8.898,4.563 -8.899,4.562 -8.898,4.563 -7.07,3.625"
+           stroke-linejoin="mitter"
+           id="path3775"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#6f6f6f;stroke-width:3;stroke-linecap:butt;stroke-opacity:1;stroke-dasharray:5, 5" />
+        <path
+           d="m 294.666,264.303 9.379,-3.471 9.378,-3.47 9.378,-3.471 9.379,-3.47 9.378,-3.471 9.379,-3.471 9.378,-3.47 9.379,-3.471 9.378,-3.47 9.378,-3.471 9.379,-3.47 9.378,-3.471 9.379,-3.471 9.378,-3.47 7.912,-2.928"
+           stroke-linejoin="mitter"
+           id="path3777"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#6f6f6f;stroke-width:3;stroke-linecap:butt;stroke-opacity:1;stroke-dasharray:5, 5" />
+        <path
+           d="m 538.774,170 -9.26,3.777 -9.259,3.776 -9.259,3.777 -9.26,3.777 -9.259,3.777 -9.259,3.777 -9.26,3.777 -9.259,3.777 -9.259,3.776 -9.26,3.777 -9.259,3.777 -3.045,1.242 3.592,9.333 3.593,9.332 3.592,9.332 3.593,9.333 3.593,9.332 3.592,9.333 3.593,9.332 3.592,9.332 3.593,9.333 3.592,9.332 3.593,9.333 3.592,9.332 3.593,9.332 3.592,9.333 3.593,9.332 3.592,9.333 2.029,5.27 9.839,-1.789 9.839,-1.788 9.838,-1.789 9.839,-1.788 9.839,-1.789 9.839,-1.788 9.838,-1.789 9.839,-1.788 9.839,-1.789 9.839,-1.788 9.839,-1.789 4.168,-0.757"
+           stroke-linejoin="mitter"
+           id="path3779"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#6f6f6f;stroke-width:3;stroke-linecap:butt;stroke-opacity:1;stroke-dasharray:5, 5" />
+      </g>
+      <animate
+         attributeName="display"
+         begin="-0.500s"
+         dur="2.000s"
+         id="anim_LineSet 2_000016"
+         keyTimes="0.0;0.05;0.1;0.15;0.2;0.25;0.3;0.35;0.4;0.45;0.5;0.55;0.6;0.65;0.7;0.75;0.8;0.85;0.9;0.95;1"
+         repeatCount="indefinite"
+         values="none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;inline;none" />
+    </g>
+    <g
+       id="frame_0017"
+       inkscape:label="frame_0017">
+      <g
+         id="g3783"
+         inkscape:groupmode="layer"
+         inkscape:label="strokes">
+        <path
+           d="m 476.659,350.476 -8.971,4.418 -8.971,4.418 -8.972,4.418 -8.971,4.418 -8.971,4.417 -8.971,4.418 -8.972,4.418 -8.971,4.418 -8.971,4.418 -8.971,4.417 -8.972,4.418 -8.971,4.418 -8.971,4.418 -8.971,4.418 -6.193,3.049"
+           stroke-linejoin="mitter"
+           id="path3785"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#6f6f6f;stroke-width:3;stroke-linecap:butt;stroke-opacity:1;stroke-dasharray:5, 5" />
+        <path
+           d="m 439.35,192.565 2.3,9.732 2.299,9.732 2.299,9.733 2.3,9.732 2.299,9.732 2.299,9.732 2.3,9.732 2.299,9.732 2.299,9.732 2.3,9.732 2.299,9.732 2.299,9.732 2.3,9.732 2.299,9.732 2.299,9.732 2.3,9.732 0.519,2.198 9.91,1.337 9.911,1.336 9.91,1.336 9.91,1.336 9.911,1.336 9.91,1.336 9.91,1.336 9.911,1.336 9.91,1.336 9.911,1.337 9.91,1.336 11.016,1.485"
+           stroke-linejoin="mitter"
+           id="path3787"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#6f6f6f;stroke-width:3;stroke-linecap:butt;stroke-opacity:1;stroke-dasharray:5, 5" />
+      </g>
+      <animate
+         attributeName="display"
+         begin="-0.400s"
+         dur="2.000s"
+         id="anim_LineSet 2_000017"
+         keyTimes="0.0;0.05;0.1;0.15;0.2;0.25;0.3;0.35;0.4;0.45;0.5;0.55;0.6;0.65;0.7;0.75;0.8;0.85;0.9;0.95;1"
+         repeatCount="indefinite"
+         values="none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;inline;none" />
+    </g>
+    <g
+       id="frame_0018"
+       inkscape:label="frame_0018">
+      <g
+         id="g3791"
+         inkscape:groupmode="layer"
+         inkscape:label="strokes">
+        <path
+           d="m 465.206,335.434 -9.029,4.299 -9.029,4.298 -9.029,4.299 -9.029,4.299 -9.029,4.298 -9.028,4.299 -9.029,4.299 -9.029,4.298 -9.029,4.299 -9.029,4.299 -9.029,4.298 -9.029,4.299 -9.029,4.299 -9.029,4.298 -5.719,2.723"
+           stroke-linejoin="mitter"
+           id="path3793"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#6f6f6f;stroke-width:3;stroke-linecap:butt;stroke-opacity:1;stroke-dasharray:5, 5" />
+        <path
+           d="m 446.12,179.27 1.213,9.926 1.213,9.926 1.213,9.926 1.214,9.926 1.213,9.926 1.213,9.926 1.213,9.927 1.213,9.926 1.213,9.926 1.213,9.926 1.214,9.926 1.213,9.926 1.213,9.926 1.213,9.927 1.213,9.926 0.889,7.272 9.437,3.307 9.438,3.306 9.437,3.307 9.438,3.307 9.437,3.307 9.438,3.306 9.437,3.307 9.438,3.307 9.437,3.307 9.438,3.306 9.437,3.307 9.437,3.307 8.652,3.031"
+           stroke-linejoin="mitter"
+           id="path3795"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#6f6f6f;stroke-width:3;stroke-linecap:butt;stroke-opacity:1;stroke-dasharray:5, 5" />
+      </g>
+      <animate
+         attributeName="display"
+         begin="-0.300s"
+         dur="2.000s"
+         id="anim_LineSet 2_000018"
+         keyTimes="0.0;0.05;0.1;0.15;0.2;0.25;0.3;0.35;0.4;0.45;0.5;0.55;0.6;0.65;0.7;0.75;0.8;0.85;0.9;0.95;1"
+         repeatCount="indefinite"
+         values="none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;inline;none" />
+    </g>
+    <g
+       id="frame_0019"
+       inkscape:label="frame_0019">
+      <g
+         id="g3799"
+         inkscape:groupmode="layer"
+         inkscape:label="strokes">
+        <path
+           d="m 458.85,325.443 -9.064,4.223 -9.065,4.223 -9.064,4.223 -9.065,4.223 -9.065,4.223 -9.064,4.223 -9.065,4.223 -9.064,4.223 -9.065,4.222 -9.064,4.223 -9.065,4.223 -9.065,4.223 -9.064,4.223 -9.065,4.223 -5.521,2.572"
+           stroke-linejoin="mitter"
+           id="path3801"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#6f6f6f;stroke-width:3;stroke-linecap:butt;stroke-opacity:1;stroke-dasharray:5, 5" />
+        <path
+           d="m 451.361,172.235 0.488,9.988 0.488,9.988 0.489,9.988 0.488,9.988 0.488,9.988 0.488,9.989 0.489,9.988 0.488,9.988 0.488,9.988 0.489,9.988 0.488,9.988 0.488,9.988 0.488,9.988 0.489,9.988 0.488,9.988 0.165,3.387 9.021,4.317 9.02,4.316 9.021,4.317 9.02,4.316 9.02,4.317 9.021,4.317 9.02,4.316 9.02,4.317 9.021,4.316 9.02,4.317 9.021,4.316 9.02,4.317 9.02,4.317 4.158,1.989"
+           stroke-linejoin="mitter"
+           id="path3803"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#6f6f6f;stroke-width:3;stroke-linecap:butt;stroke-opacity:1;stroke-dasharray:5, 5" />
+      </g>
+      <animate
+         attributeName="display"
+         begin="-0.200s"
+         dur="2.000s"
+         id="anim_LineSet 2_000019"
+         keyTimes="0.0;0.05;0.1;0.15;0.2;0.25;0.3;0.35;0.4;0.45;0.5;0.55;0.6;0.65;0.7;0.75;0.8;0.85;0.9;0.95;1"
+         repeatCount="indefinite"
+         values="none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;inline;none" />
+    </g>
+    <g
+       id="frame_0020"
+       inkscape:label="frame_0020"
+       style="display:inline">
+      <g
+         id="g3807"
+         inkscape:groupmode="layer"
+         inkscape:label="strokes"
+         style="display:inline">
+        <path
+           d="m 456.866,322.017 -9.077,4.198 -9.076,4.197 -9.077,4.198 -9.076,4.197 -9.077,4.198 -9.076,4.197 -9.076,4.198 -9.077,4.197 -9.076,4.198 -9.077,4.197 -9.076,4.197 -9.076,4.198 -9.077,4.197 -9.076,4.198 -5.473,2.531"
+           stroke-linejoin="mitter"
+           id="path3809"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#6f6f6f;stroke-width:3;stroke-linecap:butt;stroke-opacity:1;stroke-dasharray:5, 5" />
+        <path
+           d="m 453.278,170.112 0.236,9.997 0.236,9.997 0.236,9.997 0.236,9.998 0.236,9.997 0.236,9.997 0.237,9.997 0.236,9.998 0.236,9.997 0.236,9.997 0.236,9.997 0.236,9.997 0.236,9.998 0.236,9.997 0.237,9.997 0.046,1.947 8.868,4.621 8.869,4.62 8.868,4.621 8.869,4.62 8.869,4.62 8.868,4.621 8.869,4.62 8.868,4.62 8.869,4.621 8.869,4.62 8.868,4.62 8.869,4.621 8.869,4.62 5.707,2.973"
+           stroke-linejoin="mitter"
+           id="path3811"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#6f6f6f;stroke-width:3;stroke-linecap:butt;stroke-opacity:1;stroke-dasharray:5, 5" />
+      </g>
+      <animate
+         attributeName="display"
+         begin="-0.100s"
+         dur="2.000s"
+         id="anim_LineSet 2_000020"
+         keyTimes="0.0;0.05;0.1;0.15;0.2;0.25;0.3;0.35;0.4;0.45;0.5;0.55;0.6;0.65;0.7;0.75;0.8;0.85;0.9;0.95;1"
+         repeatCount="indefinite"
+         values="none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;inline;none" />
+    </g>
+  </g>
+  <g
+     id="LineSet"
+     inkscape:label="LineSet"
+     clip-path="url(#clipPath5519)"
+     transform="translate(-293.28125,-152.77956)"
+     style="display:inline">
+    <g
+       id="g3815"
+       inkscape:label="frame_0001">
+      <g
+         id="g3817"
+         inkscape:groupmode="layer"
+         inkscape:label="strokes">
+        <path
+           d="m 324.323,383.313 118.525,78.113"
+           stroke-linejoin="mitter"
+           id="path3819"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="M 442.848,461.426 577.865,385.055"
+           stroke-linejoin="mitter"
+           id="path3821"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="M 437,282.236 583.851,219.88"
+           stroke-linejoin="mitter"
+           id="path3823"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="M 583.851,219.88 453.278,170.112"
+           stroke-linejoin="mitter"
+           id="path3825"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="M 453.278,170.112 309.454,219.34"
+           stroke-linejoin="mitter"
+           id="path3827"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="M 309.454,219.34 437,282.236"
+           stroke-linejoin="mitter"
+           id="path3829"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="M 442.848,461.426 437,282.236"
+           stroke-linejoin="mitter"
+           id="path3831"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="m 309.454,219.34 14.869,163.973"
+           stroke-linejoin="mitter"
+           id="path3833"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="M 577.865,385.055 583.851,219.88"
+           stroke-linejoin="mitter"
+           id="path3835"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+      </g>
+      <animate
+         attributeName="display"
+         begin="-2.000s"
+         dur="2.000s"
+         id="anim_LineSet_000001"
+         keyTimes="0.0;0.05;0.1;0.15;0.2;0.25;0.3;0.35;0.4;0.45;0.5;0.55;0.6;0.65;0.7;0.75;0.8;0.85;0.9;0.95;1"
+         repeatCount="indefinite"
+         values="none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;inline;none" />
+    </g>
+    <g
+       id="g3838"
+       inkscape:label="frame_0002">
+      <g
+         id="g3840"
+         inkscape:groupmode="layer"
+         inkscape:label="strokes">
+        <path
+           d="m 323.554,386.275 125.415,75.127"
+           stroke-linejoin="mitter"
+           id="path3842"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="M 448.969,461.402 577.453,382.09"
+           stroke-linejoin="mitter"
+           id="path3844"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="M 443.692,282.196 583.375,217.502"
+           stroke-linejoin="mitter"
+           id="path3846"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="M 583.375,217.502 447.988,170.15"
+           stroke-linejoin="mitter"
+           id="path3848"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="M 447.988,170.15 308.546,221.719"
+           stroke-linejoin="mitter"
+           id="path3850"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="m 308.546,221.719 135.146,60.477"
+           stroke-linejoin="mitter"
+           id="path3852"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="M 448.969,461.402 443.692,282.196"
+           stroke-linejoin="mitter"
+           id="path3854"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="m 308.546,221.719 15.008,164.556"
+           stroke-linejoin="mitter"
+           id="path3856"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="m 577.453,382.09 5.922,-164.588"
+           stroke-linejoin="mitter"
+           id="path3858"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+      </g>
+      <animate
+         attributeName="display"
+         begin="-1.900s"
+         dur="2.000s"
+         id="anim_LineSet_000002"
+         keyTimes="0.0;0.05;0.1;0.15;0.2;0.25;0.3;0.35;0.4;0.45;0.5;0.55;0.6;0.65;0.7;0.75;0.8;0.85;0.9;0.95;1"
+         repeatCount="indefinite"
+         values="none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;inline;none" />
+    </g>
+    <g
+       id="g3861"
+       inkscape:label="frame_0003">
+      <g
+         id="g3863"
+         inkscape:groupmode="layer"
+         inkscape:label="strokes">
+        <path
+           d="m 322.638,395.286 144.654,65.085"
+           stroke-linejoin="mitter"
+           id="path3865"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="M 467.292,460.371 574.857,373.399"
+           stroke-linejoin="mitter"
+           id="path3867"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="M 463.73,281.291 580.481,210.549"
+           stroke-linejoin="mitter"
+           id="path3869"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="M 580.481,210.549 432.122,170.757"
+           stroke-linejoin="mitter"
+           id="path3871"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="M 432.122,170.757 307.324,228.963"
+           stroke-linejoin="mitter"
+           id="path3873"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="M 307.324,228.963 463.73,281.291"
+           stroke-linejoin="mitter"
+           id="path3875"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="M 467.292,460.371 463.73,281.291"
+           stroke-linejoin="mitter"
+           id="path3877"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="m 307.324,228.963 15.314,166.323"
+           stroke-linejoin="mitter"
+           id="path3879"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="m 574.857,373.399 5.624,-162.85"
+           stroke-linejoin="mitter"
+           id="path3881"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+      </g>
+      <animate
+         attributeName="display"
+         begin="-1.800s"
+         dur="2.000s"
+         id="anim_LineSet_000003"
+         keyTimes="0.0;0.05;0.1;0.15;0.2;0.25;0.3;0.35;0.4;0.45;0.5;0.55;0.6;0.65;0.7;0.75;0.8;0.85;0.9;0.95;1"
+         repeatCount="indefinite"
+         values="none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;inline;none" />
+    </g>
+    <g
+       id="g3884"
+       inkscape:label="frame_0004">
+      <g
+         id="g3886"
+         inkscape:groupmode="layer"
+         inkscape:label="strokes">
+        <path
+           d="m 325.731,409.825 170.001,45.964"
+           stroke-linejoin="mitter"
+           id="path3888"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="m 495.732,455.789 70.957,-95.443"
+           stroke-linejoin="mitter"
+           id="path3890"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="M 494.826,277.448 571.539,200.15"
+           stroke-linejoin="mitter"
+           id="path3892"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="m 571.539,200.15 -164.5,-26.89"
+           stroke-linejoin="mitter"
+           id="path3894"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="m 407.039,173.26 -96.732,67.412"
+           stroke-linejoin="mitter"
+           id="path3896"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="m 310.307,240.672 184.519,36.776"
+           stroke-linejoin="mitter"
+           id="path3898"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="M 495.732,455.789 494.826,277.448"
+           stroke-linejoin="mitter"
+           id="path3900"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="m 310.307,240.672 15.424,169.153"
+           stroke-linejoin="mitter"
+           id="path3902"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="m 566.689,360.346 4.85,-160.196"
+           stroke-linejoin="mitter"
+           id="path3904"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+      </g>
+      <animate
+         attributeName="display"
+         begin="-1.700s"
+         dur="2.000s"
+         id="anim_LineSet_000004"
+         keyTimes="0.0;0.05;0.1;0.15;0.2;0.25;0.3;0.35;0.4;0.45;0.5;0.55;0.6;0.65;0.7;0.75;0.8;0.85;0.9;0.95;1"
+         repeatCount="indefinite"
+         values="none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;inline;none" />
+    </g>
+    <g
+       id="g3907"
+       inkscape:label="frame_0005">
+      <g
+         id="g3909"
+         inkscape:groupmode="layer"
+         inkscape:label="strokes">
+        <path
+           d="m 338.055,427.475 189.914,17.78"
+           stroke-linejoin="mitter"
+           id="path3911"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="M 527.969,445.255 550.06,345.931"
+           stroke-linejoin="mitter"
+           id="path3913"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="m 530.016,268.742 23.485,-80.01"
+           stroke-linejoin="mitter"
+           id="path3915"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="M 553.501,188.732 376.892,179.096"
+           stroke-linejoin="mitter"
+           id="path3917"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="m 376.892,179.096 -53.625,75.821"
+           stroke-linejoin="mitter"
+           id="path3919"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="m 323.267,254.917 206.749,13.825"
+           stroke-linejoin="mitter"
+           id="path3921"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="m 527.969,445.255 2.047,-176.513"
+           stroke-linejoin="mitter"
+           id="path3923"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="m 323.267,254.917 14.788,172.558"
+           stroke-linejoin="mitter"
+           id="path3925"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="m 550.06,345.931 3.441,-157.199"
+           stroke-linejoin="mitter"
+           id="path3927"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+      </g>
+      <animate
+         attributeName="display"
+         begin="-1.600s"
+         dur="2.000s"
+         id="anim_LineSet_000005"
+         keyTimes="0.0;0.05;0.1;0.15;0.2;0.25;0.3;0.35;0.4;0.45;0.5;0.55;0.6;0.65;0.7;0.75;0.8;0.85;0.9;0.95;1"
+         repeatCount="indefinite"
+         values="none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;inline;none" />
+    </g>
+    <g
+       id="g3930"
+       inkscape:label="frame_0006">
+      <g
+         id="g3932"
+         inkscape:groupmode="layer"
+         inkscape:label="strokes">
+        <path
+           d="M 361.537,443.811 554.991,429.252"
+           stroke-linejoin="mitter"
+           id="path3934"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="M 559.392,255.633 527.376,179.211"
+           stroke-linejoin="mitter"
+           id="path3936"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="m 527.376,179.211 -179.069,9.307"
+           stroke-linejoin="mitter"
+           id="path3938"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="m 348.307,188.518 0.176,79.602"
+           stroke-linejoin="mitter"
+           id="path3940"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="M 348.483,268.12 559.392,255.633"
+           stroke-linejoin="mitter"
+           id="path3942"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="m 554.991,429.252 4.401,-173.619"
+           stroke-linejoin="mitter"
+           id="path3944"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="m 348.483,268.12 13.054,175.691"
+           stroke-linejoin="mitter"
+           id="path3946"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+      </g>
+      <animate
+         attributeName="display"
+         begin="-1.500s"
+         dur="2.000s"
+         id="anim_LineSet_000006"
+         keyTimes="0.0;0.05;0.1;0.15;0.2;0.25;0.3;0.35;0.4;0.45;0.5;0.55;0.6;0.65;0.7;0.75;0.8;0.85;0.9;0.95;1"
+         repeatCount="indefinite"
+         values="none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;inline;none" />
+    </g>
+    <g
+       id="g3949"
+       inkscape:label="frame_0007">
+      <g
+         id="g3951"
+         inkscape:groupmode="layer"
+         inkscape:label="strokes">
+        <path
+           d="M 391.354,454.85 571.051,411.705"
+           stroke-linejoin="mitter"
+           id="path3953"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="m 340.238,358.955 51.116,95.895"
+           stroke-linejoin="mitter"
+           id="path3955"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="M 576.718,241.366 498.72,173.314"
+           stroke-linejoin="mitter"
+           id="path3957"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="M 498.72,173.314 327.234,199.812"
+           stroke-linejoin="mitter"
+           id="path3959"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="m 327.234,199.812 53.584,77.216"
+           stroke-linejoin="mitter"
+           id="path3961"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="m 380.818,277.028 195.9,-35.662"
+           stroke-linejoin="mitter"
+           id="path3963"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="m 571.051,411.705 5.667,-170.339"
+           stroke-linejoin="mitter"
+           id="path3965"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="M 380.818,277.028 391.354,454.85"
+           stroke-linejoin="mitter"
+           id="path3967"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="m 327.234,199.812 13.004,159.143"
+           stroke-linejoin="mitter"
+           id="path3969"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+      </g>
+      <animate
+         attributeName="display"
+         begin="-1.400s"
+         dur="2.000s"
+         id="anim_LineSet_000007"
+         keyTimes="0.0;0.05;0.1;0.15;0.2;0.25;0.3;0.35;0.4;0.45;0.5;0.55;0.6;0.65;0.7;0.75;0.8;0.85;0.9;0.95;1"
+         repeatCount="indefinite"
+         values="none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;inline;none" />
+    </g>
+    <g
+       id="g3972"
+       inkscape:label="frame_0008">
+      <g
+         id="g3974"
+         inkscape:groupmode="layer"
+         inkscape:label="strokes">
+        <path
+           d="M 418.695,459.926 577.14,397.127"
+           stroke-linejoin="mitter"
+           id="path3976"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="m 329.599,371.798 89.096,88.128"
+           stroke-linejoin="mitter"
+           id="path3978"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="M 583.188,229.586 474.269,170.778"
+           stroke-linejoin="mitter"
+           id="path3980"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="M 474.269,170.778 315.445,210.101"
+           stroke-linejoin="mitter"
+           id="path3982"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="m 315.445,210.101 95.17,70.988"
+           stroke-linejoin="mitter"
+           id="path3984"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="M 410.615,281.089 583.188,229.586"
+           stroke-linejoin="mitter"
+           id="path3986"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="m 577.14,397.127 6.048,-167.541"
+           stroke-linejoin="mitter"
+           id="path3988"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="m 410.615,281.089 8.08,178.837"
+           stroke-linejoin="mitter"
+           id="path3990"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="m 315.445,210.101 14.154,161.697"
+           stroke-linejoin="mitter"
+           id="path3992"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+      </g>
+      <animate
+         attributeName="display"
+         begin="-1.300s"
+         dur="2.000s"
+         id="anim_LineSet_000008"
+         keyTimes="0.0;0.05;0.1;0.15;0.2;0.25;0.3;0.35;0.4;0.45;0.5;0.55;0.6;0.65;0.7;0.75;0.8;0.85;0.9;0.95;1"
+         repeatCount="indefinite"
+         values="none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;inline;none" />
+    </g>
+    <g
+       id="g3995"
+       inkscape:label="frame_0009">
+      <g
+         id="g3997"
+         inkscape:groupmode="layer"
+         inkscape:label="strokes">
+        <path
+           d="M 436.744,461.29 578.043,388.047"
+           stroke-linejoin="mitter"
+           id="path3999"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="M 325.317,380.379 436.744,461.29"
+           stroke-linejoin="mitter"
+           id="path4001"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="M 584.074,222.282 458.557,170.155"
+           stroke-linejoin="mitter"
+           id="path4003"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="M 458.557,170.155 310.604,216.984"
+           stroke-linejoin="mitter"
+           id="path4005"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="m 310.604,216.984 119.725,65.161"
+           stroke-linejoin="mitter"
+           id="path4007"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="M 430.329,282.145 584.074,222.282"
+           stroke-linejoin="mitter"
+           id="path4009"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="m 578.043,388.047 6.031,-165.765"
+           stroke-linejoin="mitter"
+           id="path4011"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="m 430.329,282.145 6.415,179.145"
+           stroke-linejoin="mitter"
+           id="path4013"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="m 310.604,216.984 14.713,163.395"
+           stroke-linejoin="mitter"
+           id="path4015"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+      </g>
+      <animate
+         attributeName="display"
+         begin="-1.200s"
+         dur="2.000s"
+         id="anim_LineSet_000009"
+         keyTimes="0.0;0.05;0.1;0.15;0.2;0.25;0.3;0.35;0.4;0.45;0.5;0.55;0.6;0.65;0.7;0.75;0.8;0.85;0.9;0.95;1"
+         repeatCount="indefinite"
+         values="none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;inline;none" />
+    </g>
+    <g
+       id="g4018"
+       inkscape:label="frame_0010">
+      <g
+         id="g4020"
+         inkscape:groupmode="layer"
+         inkscape:label="strokes">
+        <path
+           d="M 442.848,461.426 577.865,385.055"
+           stroke-linejoin="mitter"
+           id="path4022"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="m 324.323,383.313 118.525,78.113"
+           stroke-linejoin="mitter"
+           id="path4024"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="M 583.851,219.88 453.278,170.112"
+           stroke-linejoin="mitter"
+           id="path4026"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="M 453.278,170.112 309.454,219.34"
+           stroke-linejoin="mitter"
+           id="path4028"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="M 309.454,219.34 437,282.236"
+           stroke-linejoin="mitter"
+           id="path4030"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="M 437,282.236 583.851,219.88"
+           stroke-linejoin="mitter"
+           id="path4032"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="M 577.865,385.055 583.851,219.88"
+           stroke-linejoin="mitter"
+           id="path4034"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="m 437,282.236 5.848,179.19"
+           stroke-linejoin="mitter"
+           id="path4036"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="m 309.454,219.34 14.869,163.973"
+           stroke-linejoin="mitter"
+           id="path4038"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+      </g>
+      <animate
+         attributeName="display"
+         begin="-1.100s"
+         dur="2.000s"
+         id="anim_LineSet_000010"
+         keyTimes="0.0;0.05;0.1;0.15;0.2;0.25;0.3;0.35;0.4;0.45;0.5;0.55;0.6;0.65;0.7;0.75;0.8;0.85;0.9;0.95;1"
+         repeatCount="indefinite"
+         values="none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;inline;none" />
+    </g>
+    <g
+       id="g4041"
+       inkscape:label="frame_0011">
+      <g
+         id="g4043"
+         inkscape:groupmode="layer"
+         inkscape:label="strokes">
+        <path
+           d="m 440.585,462.668 134.809,-76.25"
+           stroke-linejoin="mitter"
+           id="path4045"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="m 322.28,379.444 118.305,83.224"
+           stroke-linejoin="mitter"
+           id="path4047"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="M 586.243,224.005 455.28,168.101"
+           stroke-linejoin="mitter"
+           id="path4049"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="M 455.28,168.101 311.172,217.277"
+           stroke-linejoin="mitter"
+           id="path4051"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="m 311.172,217.277 128.424,69.655"
+           stroke-linejoin="mitter"
+           id="path4053"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="M 439.596,286.932 586.243,224.005"
+           stroke-linejoin="mitter"
+           id="path4055"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="M 575.394,386.418 586.243,224.005"
+           stroke-linejoin="mitter"
+           id="path4057"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="m 439.596,286.932 0.989,175.736"
+           stroke-linejoin="mitter"
+           id="path4059"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="M 311.172,217.277 322.28,379.444"
+           stroke-linejoin="mitter"
+           id="path4061"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+      </g>
+      <animate
+         attributeName="display"
+         begin="-1.000s"
+         dur="2.000s"
+         id="anim_LineSet_000011"
+         keyTimes="0.0;0.05;0.1;0.15;0.2;0.25;0.3;0.35;0.4;0.45;0.5;0.55;0.6;0.65;0.7;0.75;0.8;0.85;0.9;0.95;1"
+         repeatCount="indefinite"
+         values="none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;inline;none" />
+    </g>
+    <g
+       id="g4064"
+       inkscape:label="frame_0012">
+      <g
+         id="g4066"
+         inkscape:groupmode="layer"
+         inkscape:label="strokes">
+        <path
+           d="m 433.402,465.428 134.22,-75.781"
+           stroke-linejoin="mitter"
+           id="path4068"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="m 316.497,367.563 116.905,97.865"
+           stroke-linejoin="mitter"
+           id="path4070"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="M 592.863,236.837 461.805,162.764"
+           stroke-linejoin="mitter"
+           id="path4072"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="M 461.805,162.764 316.869,211.867"
+           stroke-linejoin="mitter"
+           id="path4074"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="m 316.869,211.867 130.014,89.622"
+           stroke-linejoin="mitter"
+           id="path4076"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="m 446.883,301.489 145.98,-64.652"
+           stroke-linejoin="mitter"
+           id="path4078"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="m 567.622,389.647 25.241,-152.81"
+           stroke-linejoin="mitter"
+           id="path4080"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="M 446.883,301.489 433.402,465.428"
+           stroke-linejoin="mitter"
+           id="path4082"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="m 316.869,211.867 -0.372,155.696"
+           stroke-linejoin="mitter"
+           id="path4084"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+      </g>
+      <animate
+         attributeName="display"
+         begin="-0.900s"
+         dur="2.000s"
+         id="anim_LineSet_000012"
+         keyTimes="0.0;0.05;0.1;0.15;0.2;0.25;0.3;0.35;0.4;0.45;0.5;0.55;0.6;0.65;0.7;0.75;0.8;0.85;0.9;0.95;1"
+         repeatCount="indefinite"
+         values="none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;inline;none" />
+    </g>
+    <g
+       id="g4087"
+       inkscape:label="frame_0013">
+      <g
+         id="g4089"
+         inkscape:groupmode="layer"
+         inkscape:label="strokes">
+        <path
+           d="M 420.738,466.834 554.117,392.112"
+           stroke-linejoin="mitter"
+           id="path4091"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="M 308.362,347.687 420.738,466.834"
+           stroke-linejoin="mitter"
+           id="path4093"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="M 601.578,258.651 473.905,156.556"
+           stroke-linejoin="mitter"
+           id="path4095"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="M 473.905,156.556 327.748,205.828"
+           stroke-linejoin="mitter"
+           id="path4097"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="M 327.748,205.828 456.82,326.05"
+           stroke-linejoin="mitter"
+           id="path4099"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="M 456.82,326.05 601.578,258.651"
+           stroke-linejoin="mitter"
+           id="path4101"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="M 554.117,392.112 601.578,258.651"
+           stroke-linejoin="mitter"
+           id="path4103"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="M 456.82,326.05 420.738,466.834"
+           stroke-linejoin="mitter"
+           id="path4105"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="M 327.748,205.828 308.362,347.687"
+           stroke-linejoin="mitter"
+           id="path4107"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+      </g>
+      <animate
+         attributeName="display"
+         begin="-0.800s"
+         dur="2.000s"
+         id="anim_LineSet_000013"
+         keyTimes="0.0;0.05;0.1;0.15;0.2;0.25;0.3;0.35;0.4;0.45;0.5;0.55;0.6;0.65;0.7;0.75;0.8;0.85;0.9;0.95;1"
+         repeatCount="indefinite"
+         values="none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;inline;none" />
+    </g>
+    <g
+       id="g4110"
+       inkscape:label="frame_0014">
+      <g
+         id="g4112"
+         inkscape:groupmode="layer"
+         inkscape:label="strokes">
+        <path
+           d="M 402.947,463.168 535.46,390.291"
+           stroke-linejoin="mitter"
+           id="path4114"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="m 300.337,321.251 102.61,141.917"
+           stroke-linejoin="mitter"
+           id="path4116"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="M 608.699,287.729 492.098,153.527"
+           stroke-linejoin="mitter"
+           id="path4118"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="M 492.098,153.527 344.655,203.601"
+           stroke-linejoin="mitter"
+           id="path4120"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="M 344.655,203.601 465.718,358.428"
+           stroke-linejoin="mitter"
+           id="path4122"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="M 465.718,358.428 608.699,287.729"
+           stroke-linejoin="mitter"
+           id="path4124"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="M 535.46,390.291 608.699,287.729"
+           stroke-linejoin="mitter"
+           id="path4126"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="m 465.718,358.428 -62.771,104.74"
+           stroke-linejoin="mitter"
+           id="path4128"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="m 344.655,203.601 -44.318,117.65"
+           stroke-linejoin="mitter"
+           id="path4130"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+      </g>
+      <animate
+         attributeName="display"
+         begin="-0.700s"
+         dur="2.000s"
+         id="anim_LineSet_000014"
+         keyTimes="0.0;0.05;0.1;0.15;0.2;0.25;0.3;0.35;0.4;0.45;0.5;0.55;0.6;0.65;0.7;0.75;0.8;0.85;0.9;0.95;1"
+         repeatCount="indefinite"
+         values="none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;inline;none" />
+    </g>
+    <g
+       id="g4133"
+       inkscape:label="frame_0015">
+      <g
+         id="g4135"
+         inkscape:groupmode="layer"
+         inkscape:label="strokes">
+        <path
+           d="M 382.137,452.155 514.019,381.822"
+           stroke-linejoin="mitter"
+           id="path4137"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="m 295.212,291.815 86.925,160.34"
+           stroke-linejoin="mitter"
+           id="path4139"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="M 610.513,319.256 514.973,157.649"
+           stroke-linejoin="mitter"
+           id="path4141"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="M 514.973,157.649 366.619,209.483"
+           stroke-linejoin="mitter"
+           id="path4143"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="M 366.619,209.483 469.643,392.987"
+           stroke-linejoin="mitter"
+           id="path4145"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="m 469.643,392.987 140.87,-73.731"
+           stroke-linejoin="mitter"
+           id="path4147"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="m 514.019,381.822 96.494,-62.566"
+           stroke-linejoin="mitter"
+           id="path4149"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="m 469.643,392.987 -87.506,59.168"
+           stroke-linejoin="mitter"
+           id="path4151"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="m 366.619,209.483 -71.407,82.332"
+           stroke-linejoin="mitter"
+           id="path4153"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+      </g>
+      <animate
+         attributeName="display"
+         begin="-0.600s"
+         dur="2.000s"
+         id="anim_LineSet_000015"
+         keyTimes="0.0;0.05;0.1;0.15;0.2;0.25;0.3;0.35;0.4;0.45;0.5;0.55;0.6;0.65;0.7;0.75;0.8;0.85;0.9;0.95;1"
+         repeatCount="indefinite"
+         values="none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;inline;none" />
+    </g>
+    <g
+       id="g4156"
+       inkscape:label="frame_0016">
+      <g
+         id="g4158"
+         inkscape:groupmode="layer"
+         inkscape:label="strokes">
+        <path
+           d="m 294.666,264.303 67.071,170.575"
+           stroke-linejoin="mitter"
+           id="path4160"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="M 605.78,346.945 538.774,170"
+           stroke-linejoin="mitter"
+           id="path4162"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="M 538.774,170 390.186,224.491"
+           stroke-linejoin="mitter"
+           id="path4164"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="m 390.186,224.491 76.796,198.21"
+           stroke-linejoin="mitter"
+           id="path4166"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="M 466.982,422.701 605.78,346.945"
+           stroke-linejoin="mitter"
+           id="path4168"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="M 361.737,434.878 466.982,422.701"
+           stroke-linejoin="mitter"
+           id="path4170"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="m 390.186,224.491 -95.52,39.812"
+           stroke-linejoin="mitter"
+           id="path4172"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+      </g>
+      <animate
+         attributeName="display"
+         begin="-0.500s"
+         dur="2.000s"
+         id="anim_LineSet_000016"
+         keyTimes="0.0;0.05;0.1;0.15;0.2;0.25;0.3;0.35;0.4;0.45;0.5;0.55;0.6;0.65;0.7;0.75;0.8;0.85;0.9;0.95;1"
+         repeatCount="indefinite"
+         values="none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;inline;none" />
+    </g>
+    <g
+       id="g4175"
+       inkscape:label="frame_0017">
+      <g
+         id="g4177"
+         inkscape:groupmode="layer"
+         inkscape:label="strokes">
+        <path
+           d="m 298.196,242.813 46.673,172.562"
+           stroke-linejoin="mitter"
+           id="path4179"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="M 439.35,192.565 298.196,242.813"
+           stroke-linejoin="mitter"
+           id="path4181"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="M 596.689,366.659 559.12,187.367"
+           stroke-linejoin="mitter"
+           id="path4183"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="M 559.12,187.367 410.91,244.86"
+           stroke-linejoin="mitter"
+           id="path4185"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="m 410.91,244.86 48.687,198.407"
+           stroke-linejoin="mitter"
+           id="path4187"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="M 459.597,443.267 596.689,366.659"
+           stroke-linejoin="mitter"
+           id="path4189"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="m 344.869,415.375 114.728,27.892"
+           stroke-linejoin="mitter"
+           id="path4191"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="M 410.91,244.86 298.196,242.813"
+           stroke-linejoin="mitter"
+           id="path4193"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="m 559.12,187.367 -119.77,5.198"
+           stroke-linejoin="mitter"
+           id="path4195"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+      </g>
+      <animate
+         attributeName="display"
+         begin="-0.400s"
+         dur="2.000s"
+         id="anim_LineSet_000017"
+         keyTimes="0.0;0.05;0.1;0.15;0.2;0.25;0.3;0.35;0.4;0.45;0.5;0.55;0.6;0.65;0.7;0.75;0.8;0.85;0.9;0.95;1"
+         repeatCount="indefinite"
+         values="none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;inline;none" />
+    </g>
+    <g
+       id="g4198"
+       inkscape:label="frame_0018">
+      <g
+         id="g4200"
+         inkscape:groupmode="layer"
+         inkscape:label="strokes">
+        <path
+           d="m 303.477,228.838 29.605,169.5"
+           stroke-linejoin="mitter"
+           id="path4202"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="M 446.12,179.27 303.477,228.838"
+           stroke-linejoin="mitter"
+           id="path4204"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="M 587.107,378.146 573.405,204.207"
+           stroke-linejoin="mitter"
+           id="path4206"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="M 573.405,204.207 425.833,264.305"
+           stroke-linejoin="mitter"
+           id="path4208"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="m 425.833,264.305 25.371,190.513"
+           stroke-linejoin="mitter"
+           id="path4210"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="M 451.204,454.818 587.107,378.146"
+           stroke-linejoin="mitter"
+           id="path4212"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="m 333.082,398.338 118.122,56.48"
+           stroke-linejoin="mitter"
+           id="path4214"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="M 425.833,264.305 303.477,228.838"
+           stroke-linejoin="mitter"
+           id="path4216"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="M 573.405,204.207 446.12,179.27"
+           stroke-linejoin="mitter"
+           id="path4218"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+      </g>
+      <animate
+         attributeName="display"
+         begin="-0.300s"
+         dur="2.000s"
+         id="anim_LineSet_000018"
+         keyTimes="0.0;0.05;0.1;0.15;0.2;0.25;0.3;0.35;0.4;0.45;0.5;0.55;0.6;0.65;0.7;0.75;0.8;0.85;0.9;0.95;1"
+         repeatCount="indefinite"
+         values="none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;inline;none" />
+    </g>
+    <g
+       id="g4221"
+       inkscape:label="frame_0019"
+       style="display:inline">
+      <g
+         id="g4223"
+         inkscape:groupmode="layer"
+         inkscape:label="strokes">
+        <path
+           d="m 307.827,221.529 18.598,165.607"
+           stroke-linejoin="mitter"
+           id="path4225"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="M 451.361,172.235 307.827,221.529"
+           stroke-linejoin="mitter"
+           id="path4227"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="M 580.273,383.548 581.37,215.835"
+           stroke-linejoin="mitter"
+           id="path4229"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="M 581.37,215.835 434.323,277.622"
+           stroke-linejoin="mitter"
+           id="path4231"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="m 434.323,277.622 10.72,182.4"
+           stroke-linejoin="mitter"
+           id="path4233"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="m 445.043,460.022 135.23,-76.474"
+           stroke-linejoin="mitter"
+           id="path4235"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="m 326.425,387.136 118.618,72.886"
+           stroke-linejoin="mitter"
+           id="path4237"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="M 434.323,277.622 307.827,221.529"
+           stroke-linejoin="mitter"
+           id="path4239"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="m 581.37,215.835 -130.009,-43.6"
+           stroke-linejoin="mitter"
+           id="path4241"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+      </g>
+      <animate
+         attributeName="display"
+         begin="-0.200s"
+         dur="2.000s"
+         id="anim_LineSet_000019"
+         keyTimes="0.0;0.05;0.1;0.15;0.2;0.25;0.3;0.35;0.4;0.45;0.5;0.55;0.6;0.65;0.7;0.75;0.8;0.85;0.9;0.95;1"
+         repeatCount="indefinite"
+         values="none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;inline;none" />
+    </g>
+    <g
+       id="g4244"
+       inkscape:label="frame_0020"
+       style="display:inline">
+      <g
+         id="g4246"
+         inkscape:groupmode="layer"
+         inkscape:label="strokes">
+        <path
+           d="m 309.454,219.34 14.869,163.973"
+           stroke-linejoin="mitter"
+           id="path4248"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="M 453.278,170.112 309.454,219.34"
+           stroke-linejoin="mitter"
+           id="path4250"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="M 577.865,385.055 583.851,219.88"
+           stroke-linejoin="mitter"
+           id="path4252"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="M 583.851,219.88 437,282.236"
+           stroke-linejoin="mitter"
+           id="path4254"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="m 437,282.236 5.848,179.19"
+           stroke-linejoin="mitter"
+           id="path4256"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="M 442.848,461.426 577.865,385.055"
+           stroke-linejoin="mitter"
+           id="path4258"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="m 324.323,383.313 118.525,78.113"
+           stroke-linejoin="mitter"
+           id="path4260"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="M 437,282.236 309.454,219.34"
+           stroke-linejoin="mitter"
+           id="path4262"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+        <path
+           d="M 583.851,219.88 453.278,170.112"
+           stroke-linejoin="mitter"
+           id="path4264"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#3a3a3a;stroke-width:3;stroke-linecap:butt;stroke-opacity:1" />
+      </g>
+      <animate
+         attributeName="display"
+         begin="-0.100s"
+         dur="2.000s"
+         id="anim_LineSet_000020"
+         keyTimes="0.0;0.05;0.1;0.15;0.2;0.25;0.3;0.35;0.4;0.45;0.5;0.55;0.6;0.65;0.7;0.75;0.8;0.85;0.9;0.95;1"
+         repeatCount="indefinite"
+         values="none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;none;inline;none" />
+    </g>
+  </g>
+</svg>

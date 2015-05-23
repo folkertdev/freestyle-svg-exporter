@@ -1,0 +1,8 @@
+*.sublime*
+*.swp
+*.un~
+.README.*
+
+*~
+*.swp
+*.swo
