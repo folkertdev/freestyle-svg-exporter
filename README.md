@@ -4,6 +4,8 @@ Freestyle SVG Exporter
 A Blender addon for exporting stylized lines created by the Freestyle render engine to an SVG format. 
 This is the development version: More features, more bugs!
 
+![Car](https://rawgit.com/folkertdev/freestyle-svg-exporter/master/Examples/car.svg)
+
 To use (for now):
 - Overwrite the current addon file with the one in this repository. 
 - Enable the addon via User Preferences > Addons > SVG
@@ -44,12 +46,15 @@ Animations
 
 The exporter supports the creation of SVG animations. When the Mode is set to Animation, all frames from a render - one when f12 is pressed, all when shift f12 is pressed - into a single file. Most modern browsers support the rendering of SVG animations. 
 
-.. figure::"Examples/rotating cube.svg"
+
+<p align="center"><img src ="https://rawgit.com/folkertdev/freestyle-svg-exporter/master/Examples/rotating cube.svg" /></p>
 
 
 Exporting Fills 
 ===============
 
 Fills are colored areas extracted from a Freestyle render result. Specifically, they are defined by a combination of the Contour and External Contour edge type, combined with some predicates. The fill result can be unexpected, when the SVG renderer cannot correctly draw the path that the exporter has generated. This problem is extra apparent in animations. 
+
+<p align="center"><img src ="https://rawgit.com/folkertdev/freestyle-svg-exporter/master/Examples/final.svg" /></p>
 
 Fills support holes and layering. When using layers, the exporter tries to render objects with the same material as the same patch. The exporting of fills and especially the order in which they are layered is by no means perfect. In most cases, these problems can be easily solved in Inkscape or a text editor.  
