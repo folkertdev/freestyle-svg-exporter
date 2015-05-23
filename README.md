@@ -54,7 +54,7 @@ Exporting Fills
 
 Fills are colored areas extracted from a Freestyle render result. Specifically, they are defined by a combination of the Contour and External Contour edge type, combined with some predicates. The fill result can be unexpected, when the SVG renderer cannot correctly draw the path that the exporter has generated. This problem is extra apparent in animations. 
 
-<p align="center"><img src="https://rawgit.com/folkertdev/freestyle-svg-exporter/master/Examples/final.svg" />
+<p align="center"><img src="https://rawgit.com/folkertdev/freestyle-svg-exporter/master/Examples/pallet.svg" />
 </p>
 <p align="right"><a href="https://github.com/xuv">Model by Julien Deswaef</a></p>
 
