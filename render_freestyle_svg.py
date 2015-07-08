@@ -413,24 +413,7 @@ class SVGFillBuilder:
                 stroke.insert_vertex(vert, stroke.stroke_vertices_end())
             return stroke
 
-        def sorted_strokes(strokes, key=None):
-            from operator import itemgetter
-            camera = getCurrentScene().camera.location
-            result = []
-            for stroke in strokes:
-                name = get_object_name(stroke)
-                location = bpy.data.objects[name].location 
-                distance = (camera - location).length
-                result.append((stroke, distance, name)) 
-            sort = sorted(result, key=itemgetter(1))
-            for _, _, name in sort:
-                print(name)
-            return tuple(zip(*sort))[0]
-
         base_strokes = tuple(stroke for stroke in strokes if not is_poly_clockwise(stroke))
-
-
-        base_strokes = sorted_strokes(base_strokes)
         merged_strokes = OrderedDict((s, list()) for s in base_strokes)
 
         for stroke in filter(is_poly_clockwise, strokes):
@@ -450,19 +433,9 @@ class SVGFillBuilder:
                     break
             else:
                 # if all else fails, treat this stroke as a base stroke
-                print("create new base")
-                print(get_object_name(stroke))
                 merged_strokes.update({stroke:  []})
-        
-        def distance_to_camera(pair):
-            base, _ = pair 
-            median = sum((sv.point_3d for sv in base), Vector((0, 0, 0))) / len(stroke)
-            camera = getCurrentScene().camera.location 
-            return -(median - camera).length
-
-        return OrderedDict(sorted(merged_strokes.items(), key=distance_to_camera))
         return merged_strokes
-        
+
 
     def stroke_to_svg(self, stroke, height, parameters=None):
         if parameters is None:
