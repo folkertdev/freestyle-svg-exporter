@@ -173,7 +173,9 @@ class SVGExporterLinesetPanel(bpy.types.Panel):
 
         scene = context.scene
         svg = scene.svg_export
-        freestyle = scene.render.layers.active.freestyle_settings
+
+        view_layer = context.view_layer
+        freestyle = view_layer.freestyle_settings
         linestyle = freestyle.linesets.active.linestyle
 
         layout.active = (svg.use_svg_export and freestyle.mode != 'SCRIPT')
@@ -240,7 +242,8 @@ class SVGExporterPanel(bpy.types.Panel):
 
         scene = context.scene
         svg = scene.svg_export
-        freestyle = scene.render.layers.active.freestyle_settings
+        view_layer = context.view_layer
+        freestyle = view_layer.freestyle_settings
 
         layout.active = (svg.use_svg_export and freestyle.mode != 'SCRIPT')
 
