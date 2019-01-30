@@ -22,7 +22,7 @@ bl_info = {
     "name": "Freestyle SVG Exporter",
     "author": "Folkert de Vries",
     "version": (1, 0),
-    "blender": (2, 72, 1),
+    "blender": (2, 80, 0),
     "location": "Properties > Render > Freestyle SVG Export",
     "description": "Exports Freestyle's stylized edges in SVG format",
     "warning": "",
